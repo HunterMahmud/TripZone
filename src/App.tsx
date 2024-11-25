@@ -1,10 +1,8 @@
 
 function App() {
-
-
   return (
     <>
-      <h1>hello from app</h1>
+      <h1 className="text-3xl">hello from app</h1>
     </>
   )
 }
