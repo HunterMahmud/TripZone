@@ -5,7 +5,16 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        popins: ["'Poppins', serif"], 
+        barlow: ["'Barlow', serif"], 
+      },
+      colors: {
+        primary: '#0f2454', 
+        secondary: '#2095ae', 
+      },
+    },
   },
   plugins: [],
 }
