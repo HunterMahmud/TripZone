@@ -14,39 +14,39 @@ const Navbar: React.FC = () => {
 
     const navLinks = <>
         <li> <NavLink className={({ isActive }) =>
-            isActive ? 'p-0 text-[#FD4C5C] pb-1 rounded-none text-[16px] border-b-2 font-medium mt-2 border-[#FD4C5C]'
+            isActive ? 'p-0 text-secondary pb-1 rounded-none text-[16px] border-b-2 font-medium mt-2 border-secondary'
                 :
-                'font-medium p-0 transition-all duration-200 ease-in-out hover:pb-1 hover:text-[#FD4C5C] hover:rounded-none text-[16px] hover:border-b-2 border-[#FD4C5C] mt-2'
+                'font-medium p-0 transition-all duration-200 ease-in-out hover:pb-1 hover:text-secondary hover:rounded-none text-[16px] hover:border-b-2 border-secondary mt-2'
         } to={'/'}> Home </NavLink> </li>
 
 
         {/* {user && <> */}
 
         <li> <NavLink className={({ isActive }) =>
-            isActive ? 'p-0 text-[#FD4C5C] pb-1 rounded-none text-[16px] border-b-2 font-medium mt-2 border-[#FD4C5C]'
+            isActive ? 'p-0 text-secondary pb-1 rounded-none text-[16px] border-b-2 font-medium mt-2 border-secondary'
                 :
-                'font-medium p-0 transition-all duration-200 ease-in-out hover:text-[#FD4C5C] hover:pb-1 hover:rounded-none text-[16px] hover:border-b-2 mt-2 border-[#FD4C5C]'
+                'font-medium p-0 transition-all duration-200 ease-in-out hover:text-secondary hover:pb-1 hover:rounded-none text-[16px] hover:border-b-2 mt-2 border-secondary'
         } to={'/community'}> Community </NavLink> </li>
 
 
         <li> <NavLink className={({ isActive }) =>
-            isActive ? 'p-0 text-[#FD4C5C] pb-1 rounded-none text-[16px] border-b-2 font-medium mt-2 border-[#FD4C5C]'
+            isActive ? 'p-0 text-secondary pb-1 rounded-none text-[16px] border-b-2 font-medium mt-2 border-secondary'
                 :
-                'font-medium p-0 transition-all duration-200 ease-in-out hover:text-[#FD4C5C] hover:pb-1 hover:rounded-none text-[16px] hover:border-b-2 mt-2 border-[#FD4C5C]'
+                'font-medium p-0 transition-all duration-200 ease-in-out hover:text-secondary hover:pb-1 hover:rounded-none text-[16px] hover:border-b-2 mt-2 border-secondary'
         } to={'/about'}> About Us </NavLink> </li>
 
         <li> <NavLink className={({ isActive }) =>
-            isActive ? 'p-0 text-[#FD4C5C] pb-1 rounded-none text-[16px] border-b-2 font-medium mt-2 border-[#FD4C5C]'
+            isActive ? 'p-0 text-secondary pb-1 rounded-none text-[16px] border-b-2 font-medium mt-2 border-secondary'
                 :
-                'font-medium p-0 transition-all duration-200 ease-in-out hover:text-[#FD4C5C] hover:pb-1 hover:rounded-none text-[16px] hover:border-b-2 mt-2 border-[#FD4C5C]'
+                'font-medium p-0 transition-all duration-200 ease-in-out hover:text-secondary hover:pb-1 hover:rounded-none text-[16px] hover:border-b-2 mt-2 border-secondary'
         } to={'/contact'}> Contact Us </NavLink> </li>
 
         {/* </>} */}
 
         <li> <NavLink className={({ isActive }) =>
-            isActive ? 'p-0 text-[#FD4C5C] pb-1 rounded-none text-[16px] border-b-2 font-medium mt-2 border-[#FD4C5C]'
+            isActive ? 'p-0 text-secondary pb-1 rounded-none text-[16px] border-b-2 font-medium mt-2 border-secondary'
                 :
-                'font-medium p-0 transition-all duration-200 ease-in-out hover:text-[#FD4C5C] hover:pb-1 hover:rounded-none text-[16px] hover:border-b-2 mt-2 border-[#FD4C5C]'
+                'font-medium p-0 transition-all duration-200 ease-in-out hover:text-secondary hover:pb-1 hover:rounded-none text-[16px] hover:border-b-2 mt-2 border-secondary'
         } to={'/blogs'}> Blogs </NavLink> </li>
 
     </>
@@ -87,7 +87,7 @@ const Navbar: React.FC = () => {
 
 
                 <Link to={'/'} className="font-bold text-lg md:text-3xl gap-3 flex items-center">
-                    <span className="text-orange-500">T<span className="text-white">rip</span><span className="">Zone</span></span>
+                    <span className="text-secondary"><span className="text-white">Trip</span><span className="">Zone</span></span>
                     </Link>
 
 
@@ -95,9 +95,7 @@ const Navbar: React.FC = () => {
             {/* Nav Menu */}
             <div className="navbar-center hidden ml-8 lg:flex">
                 <ul className="menu-horizontal space-x-5 ">
-                    {
-                        navLinks
-                    }
+                    {navLinks}
                 </ul>
             </div>
 
@@ -136,10 +134,10 @@ const Navbar: React.FC = () => {
                         :
                         <>
                             <div className=" flex ">
-                                <Link to={`/login`} className="md:mr-2 mr-1 md:px-[30px] md:py-[12px] py-0.5 px-1.5 ease-out font-medium tracking-wide text-white md:text-[15px] text-xs capitalize transition-colors duration-300 transform rounded-md border-[#FD4C5C] hover:bg-[#FD4C5C] hover:border-[#FD4C5C] border hover:border">
+                                <Link to={`/login`} className="md:mr-2 mr-1 md:px-[30px] md:py-[12px] py-0.5 px-1.5 ease-out font-medium tracking-wide text-white md:text-[15px] text-xs capitalize transition-colors duration-300 transform rounded-md border-secondary hover:bg-secondary hover:border-secondary border hover:border">
                                     Login
                                 </Link>
-                                <Link to={`/register`} className="md:px-[30px] md:py-[12px] px-1 ease-out font-medium tracking-wide text-white md:text-[15px] text-xs capitalize transition-colors duration-300 transform bg-[#FD4C5C] rounded-md hover:bg-transparent border-[#FD4C5C] hover:border-[#FD4C5C] border  ">
+                                <Link to={`/register`} className="md:px-[30px] md:py-[12px] px-1 ease-out font-medium tracking-wide text-white md:text-[15px] text-xs capitalize transition-colors duration-300 transform bg-secondary rounded-md hover:bg-transparent border-secondary hover:border-secondary border  ">
                                     Sign Up
                                 </Link>
                             </div>
