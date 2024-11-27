@@ -1,4 +1,24 @@
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import {
+  FaPhone,
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaFacebookF,
+  FaTwitter,
+  FaInstagram,
+  FaLinkedinIn,
+} from "react-icons/fa";
+
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+
+// import './styles.css';
+
+// Import required modules
+import { Pagination } from "swiper/modules";
 
 const Contact: React.FC = () => {
   return (
@@ -184,6 +204,112 @@ const Contact: React.FC = () => {
             referrerPolicy="no-referrer-when-downgrade"
             className="border-0"
           ></iframe>
+        </div>
+      </div>
+
+      <div
+        className="relative bg-cover bg-center bg-fixed h-[500px]  mt-12"
+        style={{
+          backgroundImage:
+            "url('https://i.ibb.co/2qLhF8p/pexels-souvenirpixels-1519088.jpg')",
+        }}
+      >
+        <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+
+        <div className="container mx-auto relative px-6 lg:px-20 text-left">
+          <div className="md:pt-24 pt-4">
+            <h3 className="md:text-2xl text-xl font-bold text-white z-10">
+              We Provide Top Destinations Especially <br /> For You. Book Now
+              and Enjoy!
+            </h3>
+            <h2 className="md:text-5xl text-4xl font-bold text-secondary mt-2 max-w-2xl z-10">
+              Contact Us
+            </h2>
+          </div>
+
+          {/* Card Section */}
+          <div className="absolute right-8 top-48 bg-white p-6 rounded-lg shadow-lg max-w-sm w-3/4 z-20">
+            <h4 className="text-lg font-popins font-semibold text-primary mb-4">
+              What Our Clients Say
+            </h4>
+            <p className="text-sm text-gray-700 mb-4">
+              Check out the reviews from our satisfied clients below!
+            </p>
+
+            {/* Swiper for reviews */}
+            <Swiper
+              spaceBetween={30}
+              pagination={{
+                clickable: true,
+              }}
+              modules={[Pagination]}
+              className="mySwiper"
+            >
+              <SwiperSlide>
+                <div className="p-4">
+                  <p className="text-gray-600 italic mb-2">
+                    "This service is amazing! I had the best time booking my
+                    trip, and the experience was flawless."
+                  </p>
+                  <div className="flex items-center">
+                    <img
+                      src="https://via.placeholder.com/50"
+                      alt="User 1"
+                      className="w-12 h-12 rounded-full mr-4"
+                    />
+                    <div>
+                      <p className="font-semibold font-popins">John Doe</p>
+                      <p className="text-gray-500 font-barlow">Traveler</p>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+
+              <SwiperSlide>
+                <div className="p-4">
+                  <p className="text-gray-600 italic mb-2">
+                    "A seamless experience from start to finish. Great customer
+                    service and smooth booking process!"
+                  </p>
+                  <div className="flex items-center">
+                    <img
+                      src="https://via.placeholder.com/50"
+                      alt="User 2"
+                      className="w-12 h-12 rounded-full mr-4"
+                    />
+                    <div>
+                      <p className="font-semibold font-popins">Jane Smith</p>
+                      <p className="text-gray-500 font-barlow">
+                        Business Traveler
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+
+              <SwiperSlide>
+                <div className="p-4">
+                  <p className="text-gray-600 italic mb-2">
+                    "I booked my dream vacation through this platform, and it
+                    was the best decision. Highly recommend!"
+                  </p>
+                  <div className="flex items-center">
+                    <img
+                      src="https://via.placeholder.com/50"
+                      alt="User 3"
+                      className="w-12 h-12 rounded-full mr-4"
+                    />
+                    <div>
+                      <p className="font-semibold font-popins">
+                        Michael Johnson
+                      </p>
+                      <p className="text-gray-500 font-barlow">Explorer</p>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+            </Swiper>
+          </div>
         </div>
       </div>
     </section>
