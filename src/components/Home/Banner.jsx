@@ -36,7 +36,7 @@ const Banner = () => {
                         <div className=' text-white'>
                             <Navbar></Navbar>
                         </div>
-                        {/* <div className='flex items-center justify-center md:h-[540px] h-[350px]'>
+                        <div className='flex items-center justify-center md:h-[540px] h-[350px]'>
                             <div className=" text-white mx-auto md:max-w-[820px] text-center ltr:sm:text-left rtl:sm:text-right p-10 rounded-lg">
                                 <h1 className="text-3xl font-bold sm:text-6xl">
                                     <div>Your journey starts here</div>
@@ -46,7 +46,7 @@ const Banner = () => {
                                 </p>
                                 <button className='border border-secondary py-[9px] bg-secondary hover:bg-transparent px-6 font-semibold'> Explore Destinations </button>
                             </div>
-                        </div> */}
+                        </div>
                     </div>
 
                 </section>
@@ -64,7 +64,7 @@ const Banner = () => {
                         <div className=' text-white'>
                             <Navbar></Navbar>
                         </div>
-                        {/* <div className='flex items-center justify-center md:h-[540px] h-[350px]'>
+                        <div className='flex items-center justify-center md:h-[540px] h-[350px]'>
                             <div className=" text-white mx-auto md:max-w-[820px] text-center ltr:sm:text-left rtl:sm:text-right p-10 rounded-lg">
                                 <h1 className="text-3xl font-bold sm:text-6xl">
                                     <div>Your journey starts here</div>
@@ -74,7 +74,7 @@ const Banner = () => {
                                 </p>
                                 <button className='border border-secondary py-[9px] bg-secondary hover:bg-transparent px-6 font-semibold'> Explore Destinations </button>
                             </div>
-                        </div> */}
+                        </div>
                     </div>
 
                 </section>
@@ -92,7 +92,7 @@ const Banner = () => {
                         <div className=' text-white'>
                             <Navbar></Navbar>
                         </div>
-                        {/* <div className='flex items-center justify-center md:h-[540px] h-[350px]'>
+                        <div className='flex items-center justify-center md:h-[540px] h-[350px]'>
                             <div className=" text-white mx-auto md:max-w-[820px] text-center ltr:sm:text-left rtl:sm:text-right p-10 rounded-lg">
                                 <h1 className="text-3xl font-bold sm:text-6xl">
                                     <div>Your journey starts here</div>
@@ -102,7 +102,7 @@ const Banner = () => {
                                 </p>
                                 <button className='border border-secondary py-[9px] bg-secondary hover:bg-transparent px-6 font-semibold'> Explore Destinations </button>
                             </div>
-                        </div> */}
+                        </div>
                     </div>
 
                 </section>
