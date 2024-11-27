@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
-import footer from "../../../assets/images/footer.png"
-import logo from "../../../assets/images/logo.png";
+import footer from "../assets/images/footer.png"
+
 
 const Footer = () => {
   return (
@@ -13,11 +13,12 @@ const Footer = () => {
               <div className="mb-10 w-full">
                 <Link className="mb-10 inline-block max-w-[160px]">
                   <Link to={'/'} className="font-bold text-3xl md:text-4xl gap-3 flex items-center">
-                    <img className="relative" src={logo} alt="logo" />
+                    {/* <img className="relative" src={logo} alt="logo" /> */}
+                    <span className="text-secondary"><span className="text-white">Trip</span><span className="">Zone</span></span>
                   </Link>
                 </Link>
                 <p className="mb-7 text-[#a1a6ab] text-body-color">
-                  Discover your next adventure with Travel Guide - your trusted companion for exploring new destinations and experiences.
+                  Discover your next adventure with TripZone - your trusted companion for exploring new destinations and experiences.
                 </p>
                 <p className="flex md:justify-start justify-center items-center text-sm font-medium text-dark dark:text-[#a1a6ab]">
                   <span className="mr-3 text-primary">
@@ -80,7 +81,7 @@ const Footer = () => {
                 </h4>
                 <div className="mb-6 flex md:justify-start justify-center  items-center">
                   <Link
-                    className="mr-3 flex h-8 w-8 items-center justify-center rounded-full border border-stroke text-dark hover:border-[#FD4C5C] hover:bg-[#FD4C5C] hover:text-white dark:border-dark-3 dark:text-white dark:hover:border-[#FD4C5C] sm:mr-4 lg:mr-3 xl:mr-4"
+                    className="mr-3 flex h-8 w-8 items-center justify-center rounded-full border border-stroke text-dark hover:border-secondary hover:bg-secondary hover:text-white dark:border-dark-3 dark:text-white dark:hover:border-secondary sm:mr-4 lg:mr-3 xl:mr-4"
                   >
                     <svg
                       width="8"
@@ -92,7 +93,7 @@ const Footer = () => {
                     </svg>
                   </Link>
                   <Link
-                    className="mr-3 flex h-8 w-8 items-center justify-center rounded-full border border-stroke text-dark hover:border-[#FD4C5C] hover:bg-[#FD4C5C] hover:text-white dark:border-dark-3 dark:text-white dark:hover:border-[#FD4C5C] sm:mr-4 lg:mr-3 xl:mr-4"
+                    className="mr-3 flex h-8 w-8 items-center justify-center rounded-full border border-stroke text-dark hover:border-secondary hover:bg-secondary hover:text-white dark:border-dark-3 dark:text-white dark:hover:border-secondary sm:mr-4 lg:mr-3 xl:mr-4"
                   >
                     <svg
                       width="16"
@@ -104,7 +105,7 @@ const Footer = () => {
                     </svg>
                   </Link>
                   <Link
-                    className="mr-3 flex h-8 w-8 items-center justify-center rounded-full border border-stroke text-dark hover:border-[#FD4C5C] hover:bg-[#FD4C5C] hover:text-white dark:border-dark-3 dark:text-white dark:hover:border-[#FD4C5C] sm:mr-4 lg:mr-3 xl:mr-4"
+                    className="mr-3 flex h-8 w-8 items-center justify-center rounded-full border border-stroke text-dark hover:border-secondary hover:bg-secondary hover:text-white dark:border-dark-3 dark:text-white dark:hover:border-secondary sm:mr-4 lg:mr-3 xl:mr-4"
                   >
                     <svg
                       width="16"
@@ -116,7 +117,7 @@ const Footer = () => {
                     </svg>
                   </Link>
                   <Link
-                    className="mr-3 flex h-8 w-8 items-center justify-center rounded-full border border-stroke text-dark hover:border-[#FD4C5C] hover:bg-[#FD4C5C] hover:text-white dark:border-dark-3 dark:text-white dark:hover:border-[#FD4C5C] sm:mr-4 lg:mr-3 xl:mr-4"
+                    className="mr-3 flex h-8 w-8 items-center justify-center rounded-full border border-stroke text-dark hover:border-secondary hover:bg-secondary hover:text-white dark:border-dark-3 dark:text-white dark:hover:border-secondary sm:mr-4 lg:mr-3 xl:mr-4"
                   >
                     <svg
                       width="14"
@@ -129,7 +130,7 @@ const Footer = () => {
                   </Link>
                 </div>
                 <p className="text-base text-body-color dark:text-[#a1a6ab]">
-                  &copy; 2024 Travel Guide
+                  &copy; 2024 TripZone
                 </p>
               </div>
             </div>
@@ -138,7 +139,7 @@ const Footer = () => {
           {/* Copyright */}
           <div className="footer footer-center text-[#a1a6ab] pt-4 pb-3 border-t">
             <aside>
-              <p>Copyright © 2024 - All right reserved by Travel Guide Ltd</p>
+              <p>Copyright © 2024 - All right reserved by TripZone Ltd</p>
             </aside>
           </div>
 
@@ -227,7 +228,7 @@ const NavLink = ({ link, label }) => {
     <li>
       <a
         href={link}
-        className="inline-block text-base hover:underline leading-loose text-body-color hover:text-[#FD4C5C] dark:text-[#a1a6ab]"
+        className="inline-block text-base hover:underline leading-loose text-body-color hover:text-secondary dark:text-[#a1a6ab]"
       >
         {label}
       </a>
@@ -235,11 +236,11 @@ const NavLink = ({ link, label }) => {
   );
 };
 
-LinkGroup.propTypes = {
-  children: PropTypes.node,
-  header: PropTypes.node
-};
-NavLink.propTypes = {
-  link: PropTypes.node,
-  label: PropTypes.node
-};
+// LinkGroup.propTypes = {
+//   children: PropTypes.node,
+//   header: PropTypes.node
+// };
+// NavLink.propTypes = {
+//   link: PropTypes.node,
+//   label: PropTypes.node
+// };
