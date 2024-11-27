@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "author": {
+            "name": "Emma Emily",
+            "image": "https://duruthemes.com/demo/html/travol/multipage-slider/img/team/06.png"
+        },
+        "category": "Travel",
+        "title": "Most Popular Yacht Charter Routes",
+        "published_date": "30 Dec 2023",
+        "thumbnail_image": "https://duruthemes.com/demo/html/travol/multipage-slider/img/blog/6.jpg",
+        "description": "<div><p>Quisque pretium fermentum quam, sit amet cursus ante sollicitudin vel. Morbi risus conseua portito orci sit amet, iaculis nisl. Integer quis sapien neceli ultrices euismod sit amet id lacus. Sed a imperdiet erate. Duis eu est dignissim lacus dictum hendrerit quis vitae mi. Fusce eu nulla ac nisi cursus tincidun. Interan malesuada fames ac ante ipsum primis in faucibus. Integer tristique sem leo faucibus.</p><p>Nulla vitae metus tincidunt, varius nunc quis, porta nulla. Pellentesque vel dui nec libero auctor pretium sed arcu. Nunc consequat diam id nisl blani dinisim. Etiam commodo diam dolor, at scelerisque sem finibus sit amet. Curabitur id lectus eget purus finibus laoreet.</p><p>Nulla facilisi. Sedeuter nunc vouta miss mollis sapien vel, conseyer tureution yer vintane in libero semper. Quisque ravida eros ut turpis interdum ornare. Inter miss they adama seder a imerdie fames ac ante ipsum primis in faucibus.</p></div>"
+    },
+    {
+        "id": 2,
+        "author": {
+            "name": "Emma Emily",
+            "image": "https://duruthemes.com/demo/html/travol/multipage-slider/img/team/06.png"
+        },
+        "category": "Travel",
+        "title": "Most Popular Yacht Charter Routes",
+        "published_date": "30 Dec 2023",
+        "thumbnail_image": "https://duruthemes.com/demo/html/travol/multipage-slider/img/blog/22.jpg",
+        "description": "<div><p>Quisque pretium fermentum quam, sit amet cursus ante sollicitudin vel. Morbi risus conseua portito orci sit amet, iaculis nisl. Integer quis sapien neceli ultrices euismod sit amet id lacus. Sed a imperdiet erate. Duis eu est dignissim lacus dictum hendrerit quis vitae mi. Fusce eu nulla ac nisi cursus tincidun. Interan malesuada fames ac ante ipsum primis in faucibus. Integer tristique sem leo faucibus.</p><p>Nulla vitae metus tincidunt, varius nunc quis, porta nulla. Pellentesque vel dui nec libero auctor pretium sed arcu. Nunc consequat diam id nisl blani dinisim. Etiam commodo diam dolor, at scelerisque sem finibus sit amet. Curabitur id lectus eget purus finibus laoreet.</p><p>Nulla facilisi. Sedeuter nunc vouta miss mollis sapien vel, conseyer tureution yer vintane in libero semper. Quisque ravida eros ut turpis interdum ornare. Inter miss they adama seder a imerdie fames ac ante ipsum primis in faucibus.</p></div>"
+    },
+    {
+        "id": 3,
+        "author": {
+            "name": "Emma Emily",
+            "image": "https://duruthemes.com/demo/html/travol/multipage-slider/img/team/06.png"
+        },
+        "category": "Travel",
+        "title": "Most Popular Yacht Charter Routes",
+        "published_date": "30 Dec 2023",
+        "thumbnail_image": "https://duruthemes.com/demo/html/travol/multipage-slider/img/blog/22.jpg",
+        "description": "<div><p>Quisque pretium fermentum quam, sit amet cursus ante sollicitudin vel. Morbi risus conseua portito orci sit amet, iaculis nisl. Integer quis sapien neceli ultrices euismod sit amet id lacus. Sed a imperdiet erate. Duis eu est dignissim lacus dictum hendrerit quis vitae mi. Fusce eu nulla ac nisi cursus tincidun. Interan malesuada fames ac ante ipsum primis in faucibus. Integer tristique sem leo faucibus.</p><p>Nulla vitae metus tincidunt, varius nunc quis, porta nulla. Pellentesque vel dui nec libero auctor pretium sed arcu. Nunc consequat diam id nisl blani dinisim. Etiam commodo diam dolor, at scelerisque sem finibus sit amet. Curabitur id lectus eget purus finibus laoreet.</p><p>Nulla facilisi. Sedeuter nunc vouta miss mollis sapien vel, conseyer tureution yer vintane in libero semper. Quisque ravida eros ut turpis interdum ornare. Inter miss they adama seder a imerdie fames ac ante ipsum primis in faucibus.</p></div>"
+    },
+    {
+        "id": 4,
+        "author": {
+            "name": "Emma Emily",
+            "image": "https://duruthemes.com/demo/html/travol/multipage-slider/img/team/06.png"
+        },
+        "category": "Travel",
+        "title": "Most Popular Yacht Charter Routes",
+        "published_date": "30 Dec 2023",
+        "thumbnail_image": "https://duruthemes.com/demo/html/travol/multipage-slider/img/blog/22.jpg",
+        "description": "<div><p>Quisque pretium fermentum quam, sit amet cursus ante sollicitudin vel. Morbi risus conseua portito orci sit amet, iaculis nisl. Integer quis sapien neceli ultrices euismod sit amet id lacus. Sed a imperdiet erate. Duis eu est dignissim lacus dictum hendrerit quis vitae mi. Fusce eu nulla ac nisi cursus tincidun. Interan malesuada fames ac ante ipsum primis in faucibus. Integer tristique sem leo faucibus.</p><p>Nulla vitae metus tincidunt, varius nunc quis, porta nulla. Pellentesque vel dui nec libero auctor pretium sed arcu. Nunc consequat diam id nisl blani dinisim. Etiam commodo diam dolor, at scelerisque sem finibus sit amet. Curabitur id lectus eget purus finibus laoreet.</p><p>Nulla facilisi. Sedeuter nunc vouta miss mollis sapien vel, conseyer tureution yer vintane in libero semper. Quisque ravida eros ut turpis interdum ornare. Inter miss they adama seder a imerdie fames ac ante ipsum primis in faucibus.</p></div>"
+    },
+    {
+        "id": 5,
+        "author": {
+            "name": "Emma Emily",
+            "image": "https://duruthemes.com/demo/html/travol/multipage-slider/img/team/06.png"
+        },
+        "category": "Travel",
+        "title": "Most Popular Yacht Charter Routes",
+        "published_date": "30 Dec 2023",
+        "thumbnail_image": "https://duruthemes.com/demo/html/travol/multipage-slider/img/blog/5.jpg",
+        "description": "<div><p>Quisque pretium fermentum quam, sit amet cursus ante sollicitudin vel. Morbi risus conseua portito orci sit amet, iaculis nisl. Integer quis sapien neceli ultrices euismod sit amet id lacus. Sed a imperdiet erate. Duis eu est dignissim lacus dictum hendrerit quis vitae mi. Fusce eu nulla ac nisi cursus tincidun. Interan malesuada fames ac ante ipsum primis in faucibus. Integer tristique sem leo faucibus.</p><p>Nulla vitae metus tincidunt, varius nunc quis, porta nulla. Pellentesque vel dui nec libero auctor pretium sed arcu. Nunc consequat diam id nisl blani dinisim. Etiam commodo diam dolor, at scelerisque sem finibus sit amet. Curabitur id lectus eget purus finibus laoreet.</p><p>Nulla facilisi. Sedeuter nunc vouta miss mollis sapien vel, conseyer tureution yer vintane in libero semper. Quisque ravida eros ut turpis interdum ornare. Inter miss they adama seder a imerdie fames ac ante ipsum primis in faucibus.</p></div>"
+    },
+    {
+        "id": 6,
+        "author": {
+            "name": "Emma Emily",
+            "image": "https://duruthemes.com/demo/html/travol/multipage-slider/img/team/06.png"
+        },
+        "category": "Travel",
+        "title": "Most Popular Yacht Charter Routes Yacht Charter Routes",
+        "published_date": "18 Dec 2023",
+        "thumbnail_image": "https://duruthemes.com/demo/html/travol/multipage-slider/img/blog/22.jpg",
+        "description": "<div><p>Quisque pretium fermentum quam, sit amet cursus ante sollicitudin vel. Morbi risus conseua portito orci sit amet, iaculis nisl. Integer quis sapien neceli ultrices euismod sit amet id lacus. Sed a imperdiet erate. Duis eu est dignissim lacus dictum hendrerit quis vitae mi. Fusce eu nulla ac nisi cursus tincidun. Interan malesuada fames ac ante ipsum primis in faucibus. Integer tristique sem leo faucibus.</p><p>Nulla vitae metus tincidunt, varius nunc quis, porta nulla. Pellentesque vel dui nec libero auctor pretium sed arcu. Nunc consequat diam id nisl blani dinisim. Etiam commodo diam dolor, at scelerisque sem finibus sit amet. Curabitur id lectus eget purus finibus laoreet.</p><p>Nulla facilisi. Sedeuter nunc vouta miss mollis sapien vel, conseyer tureution yer vintane in libero semper. Quisque ravida eros ut turpis interdum ornare. Inter miss they adama seder a imerdie fames ac ante ipsum primis in faucibus.</p></div>"
+    }
+]
