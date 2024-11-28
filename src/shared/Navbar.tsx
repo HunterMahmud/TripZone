@@ -10,7 +10,7 @@ const Navbar: React.FC = () => {
 
     // const { user } = useAuth();
     // const navigate = useNavigate();
-    const user = null
+    const user = 'admin'
 
     const navLinks = <>
         <li> <NavLink className={({ isActive }) =>
