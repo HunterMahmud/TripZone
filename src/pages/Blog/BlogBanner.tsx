@@ -7,7 +7,7 @@ const BlogBanner: React.FC = () => {
             {/* Overlay */}
             <div className="absolute inset-0 bg-primary bg-opacity-40"></div>
 
-            <div className="relative container mx-auto">
+            <div className="relative container mx-auto px-5">
                 <TitleHeader subHeading="Read travel blog" title="Travel Experience" />
             </div>
         </div>
