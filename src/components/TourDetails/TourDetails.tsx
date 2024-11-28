@@ -122,7 +122,7 @@ const TourDetails: React.FC = () => {
         </section>
 
         {/* Gallery Section */}
-        <section className="mt-8">
+        <section className="mt-8 p-6">
           <h2 className="text-2xl font-semibold text-[#0f2454] font-poppins">
             Gallery
           </h2>
@@ -150,8 +150,8 @@ const TourDetails: React.FC = () => {
 
         {/* Modal for Booking Form */}
         {showModal && (
-          <div className="fixed z-50 inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-            <div className="bg-white p-8 rounded-lg shadow-lg max-w-lg w-full">
+          <div className="fixed z-50 inset-0 bg-black bg-opacity-50 flex items-center justify-center transition-all duration-300 ease-in-out">
+            <div className="bg-white p-8 rounded-lg shadow-lg max-w-full sm:max-w-lg md:max-w-2xl w-full mx-4">
               <h2 className="text-2xl font-semibold text-[#0f2454] font-poppins">
                 Book Your Trip
               </h2>
