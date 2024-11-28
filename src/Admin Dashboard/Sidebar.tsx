@@ -1,46 +1,47 @@
-import { useState } from "react";
+import { useState, FC } from "react";
 import { GrLogout } from "react-icons/gr";
 import { AiOutlineClose } from "react-icons/ai";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { GoHomeFill } from "react-icons/go";
 import { FaUsers } from "react-icons/fa6";
 import { MdPayments } from "react-icons/md";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { BsPersonWorkspace } from "react-icons/bs";
-
 import MenuItem from "./MenuItem";
+// import { CgProfile } from "react-icons/cg";
+
+
 // import useAuth from "../../Hook/useAuth";
 // import useRole from "../../Hook/useRole";
-import { CgProfile } from "react-icons/cg";
 
-const Sidebar = () => {
+const Sidebar: FC = () => {
   // const { logOut } = useAuth();
-  const navigate = useNavigate();
-  const [isActive, setActive] = useState(false);
-  // const [role] = useRole()
-  // console.log(role)
-  // const [toggle, setToggle] = useState(true)
+  // const navigate = useNavigate();
+  const [isActive, setActive] = useState<boolean>(false); // Explicitly typed as boolean
+  // const [role] = useRole(); // Assuming `useRole` returns an array
+  // const [toggle, setToggle] = useState<boolean>(true); // Explicitly typed as boolean
 
   // Sidebar Responsive Handler
-  const handleToggle = () => {
+  const handleToggle = (): void => {
     setActive(!isActive);
   };
 
-  // const handleLogoutBtn = () => {
-  //   logOut();
-  //   navigate("/")
-  //     .then(() => {
-  //       console.log("Sing Out Successfully");
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
+  // const handleLogoutBtn = async (): Promise<void> => {
+  //   try {
+  //     await logOut();
+  //     navigate("/");
+  //     console.log("Sign Out Successfully");
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
   // };
 
   const role = {
     role: "admin",
   }
 
+
+  
 
   return (
     <>
@@ -63,7 +64,7 @@ const Sidebar = () => {
         <button
           onClick={handleToggle}
           className={`p-4 focus:outline-none ${isActive ? "text-secondary" : "text-primary"
-            } `}
+            }`}
         >
           {isActive ? (
             <AiOutlineClose className="text-2xl" /> // Close button when sidebar is open
@@ -82,7 +83,7 @@ const Sidebar = () => {
         <div className="">
           {/* Close Button for Mobile Devices */}
           <div className="hidden md:block px-4">
-            <Link to="/" className="  ">
+            <Link to="/" className="">
               <h1 className="font-bold text-lg lg:text-2xl font-lora">
                 <span>
                   Trip
@@ -99,52 +100,46 @@ const Sidebar = () => {
         </div>
 
         {/* Nav Items */}
-        <div className="flex flex-col justify-between h-full ">
-          {
-            role?.role === "admin" && (
-              <nav className="">
-                <MenuItem
-                  label="Overview"
-                  address="/dashboard"
-                  icon={GoHomeFill}
-                  handleToggle={handleToggle} // Pass handleToggle to MenuItem
-                />
-                <MenuItem
-                  label="Manage Users"
-                  address="manage-users"
-                  icon={FaUsers}
-                  handleToggle={handleToggle}
-                />
+        <div className="flex flex-col justify-between h-full">
+          {role?.role === "admin" && (
+            <nav className="">
+              <MenuItem
+                label="Overview"
+                address="/dashboard"
+                icon={GoHomeFill}
+                handleToggle={handleToggle} // Pass handleToggle to MenuItem
+              />
+              <MenuItem
+                label="Manage Users"
+                address="manage-users"
+                icon={FaUsers}
+                handleToggle={handleToggle}
+              />
+              <MenuItem
+                label="Manage Booking"
+                address="manage-booking"
+                icon={MdPayments}
+                handleToggle={handleToggle}
+              />
+              <MenuItem
+                label="Manage Packages"
+                address="manage-packages"
+                icon={MdPayments}
+                handleToggle={handleToggle}
+              />
+              <MenuItem
+                label="Add Package"
+                address="add-package"
+                icon={BsPersonWorkspace}
+                handleToggle={handleToggle}
+              />
+            </nav>
+          )}
 
-                <MenuItem
-                  label="Manage Booking"
-                  address="manage-booking"
-                  icon={MdPayments}
-                  handleToggle={handleToggle}
-                />
-
-                <MenuItem
-                  label="Manage Packages"
-                  address="manage-packages"
-                  icon={MdPayments}
-                  handleToggle={handleToggle}
-                />
-
-                <MenuItem
-                  label="Add Package"
-                  address="add-package"
-                  icon={BsPersonWorkspace}
-                  handleToggle={handleToggle}
-                />
-
-              </nav>
-            )
-          }
-          
           <div>
-            <div className=" md:-mt-28">
+            <div className="md:-mt-28">
               <button
-                // onClick={handleLogoutBtn}
+                // onClick={handleLogoutBstn}
                 className="flex w-full items-center px-4 py-2 text-gray-600  transition-colors duration-300 transform"
               >
                 <GrLogout className="text-2xl text-secondary" />
