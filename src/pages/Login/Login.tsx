@@ -1,8 +1,4 @@
-import {
-  Link,
-  useLocation,
-  useNavigate,
-} from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { Helmet } from "react-helmet-async";
@@ -13,57 +9,57 @@ import useAuth from "../../hooks/useAuth";
 import useAxiosPublic from "./../../hooks/useAxiosPublic";
 
 const Login: React.FC = () => {
-    // const axiosSecure = useAxiosSecure();
-    const axiosPublic = useAxiosPublic();
-    const [showPass, setShowPass] = useState(false);
-    const {
-      register,
-      handleSubmit,
-      formState: { errors },
-    } = useForm();
-  
-    const { emailPasswordLogIn, googleLogin } = useAuth();
-    const location = useLocation();
-    const navigate = useNavigate();
-    // console.log(location);
-  
-    const onSubmitLogin = (data) => {
-      // console.log(data);
-      const { email, password } = data;
-      emailPasswordLogIn(email, password)
-        .then((res) => {
-          // console.log(res.user);
-          if (res) {
-            toast.success("Login success.");
-            navigate(location?.state ? location.state : "/");
-          }
-        })
-        .catch((err) => {
-          // console.log(err);
-          toast.error("Login failed. Invalid credentials");
-        });
-    };
-    const handleLoginWithGoogle = () => {
-      googleLogin()
-        .then((res) => {
-          // console.log(res.user?.email);
+  // const axiosSecure = useAxiosSecure();
+  const axiosPublic = useAxiosPublic();
+  const [showPass, setShowPass] = useState(false);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const { emailPasswordLogIn, googleLogin } = useAuth();
+  const location = useLocation();
+  const navigate = useNavigate();
+  // console.log(location);
+
+  const onSubmitLogin = (data) => {
+    // console.log(data);
+    const { email, password } = data;
+    emailPasswordLogIn(email, password)
+      .then((res) => {
+        // console.log(res.user);
+        if (res) {
           toast.success("Login success.");
-          const userInfo = {
-            email: res.user?.email,
-            name: res.user?.displayName,
-          };
-          axiosPublic.post("/user", userInfo).then((res) => {
-            // console.log(res.data);
-            navigate(location?.state ? location.state : "/");
-          });
-  
-          //
-        })
-        .catch((err) => {
-          // console.log(err);
-          toast.error("Login failed. Invalid credentials");
+          navigate(location?.state ? location.state : "/");
+        }
+      })
+      .catch((err) => {
+        // console.log(err);
+        toast.error("Login failed. Invalid credentials");
+      });
+  };
+  const handleLoginWithGoogle = () => {
+    googleLogin()
+      .then((res) => {
+        // console.log(res.user?.email);
+        toast.success("Login success.");
+        const userInfo = {
+          email: res.user?.email,
+          name: res.user?.displayName,
+        };
+        axiosPublic.post("/user", userInfo).then((res) => {
+          // console.log(res.data);
+          navigate(location?.state ? location.state : "/");
         });
-    };
+
+        //
+      })
+      .catch((err) => {
+        // console.log(err);
+        toast.error("Login failed. Invalid credentials");
+      });
+  };
   return (
     <div className="mx-2">
       <Helmet>

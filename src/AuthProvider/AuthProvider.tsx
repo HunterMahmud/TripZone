@@ -18,7 +18,7 @@ import useAxiosPublic from "./../hooks/useAxiosPublic";
 
 export const AuthContext = createContext(null);
 
-const AuthProvider = ({ children }) => {
+const AuthProvider: React.FC = ({ children }) => {
   const axiosPublic = useAxiosPublic();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
