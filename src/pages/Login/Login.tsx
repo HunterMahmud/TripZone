@@ -9,7 +9,7 @@ import useAuth from "../../hooks/useAuth";
 import useAxiosPublic from "./../../hooks/useAxiosPublic";
 
 const Login: React.FC = () => {
-  // const axiosSecure = useAxiosSecure();
+  
   const axiosPublic = useAxiosPublic();
   const [showPass, setShowPass] = useState(false);
   const {
