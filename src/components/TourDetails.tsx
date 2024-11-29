@@ -52,6 +52,8 @@ const tourData = {
   // },
 };
 
+const travelGuides = ["Shamim", "Mahmud", "Hisam", "Antor", "Shohana"];
+
 interface User {
   name: string;
   email: string;
@@ -380,13 +382,14 @@ const TourDetails: React.FC = () => {
                     <option value="" disabled>
                       Select a Guide
                     </option>
-                    <option value="Shamim">Shamim</option>
-                    <option value="Mahmud">Mahmud</option>
-                    <option value="Hisam">Hisam</option>
-                    <option value="Antor">Antor</option>
-                    <option value="Shohana">Shohana</option>
+                    {travelGuides.map((guide) => (
+                      <option key={guide} value={guide}>
+                        {guide}
+                      </option>
+                    ))}
                   </select>
                 </div>
+
                 <textarea
                   name="specialRequests"
                   value={formData.specialRequests}
