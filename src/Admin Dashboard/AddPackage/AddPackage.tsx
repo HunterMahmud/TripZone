@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
+
 const AddPackage: React.FC = () => {
+  const axiosPublic = useAxiosPublic();
   const [formData, setFormData] = useState({
     title: "",
     country: "",
@@ -12,12 +15,8 @@ const AddPackage: React.FC = () => {
     activities: [""],
     itinerary: [""],
     highlights: [""],
-    // bestTime: "",
     tips: [""],
-    price: "",
-    // accommodation: "",
-    // meals: "",
-    // activitiesCost: "",
+    price: 0, // Number type
     gallery: [""],
   });
 
@@ -33,45 +32,92 @@ const AddPackage: React.FC = () => {
     value: string,
     fieldName: string
   ) => {
-    const updatedArray = [...formData[fieldName as keyof typeof formData]];
+    const updatedArray = [
+      ...(formData[fieldName as keyof typeof formData] as string[]),
+    ];
     updatedArray[index] = value;
     setFormData({ ...formData, [fieldName]: updatedArray });
   };
 
   const handleAddField = (arrayName: string) => {
-    const updatedArray = [...formData[arrayName as keyof typeof formData], ""];
+    const updatedArray = [
+      ...(formData[arrayName as keyof typeof formData] as string[]),
+    ];
+    updatedArray.push("");
     setFormData({ ...formData, [arrayName]: updatedArray });
   };
 
   const handleRemoveField = (index: number, arrayName: string) => {
-    const updatedArray = [...formData[arrayName as keyof typeof formData]];
+    const updatedArray = [
+      ...(formData[arrayName as keyof typeof formData] as string[]),
+    ];
     updatedArray.splice(index, 1);
     setFormData({ ...formData, [arrayName]: updatedArray });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Tour Data Submitted:", formData);
+    const tourData = {
+      ...formData,
+      postedDate: new Date(),
+    };
+    console.log("Tour Data Submitted:", tourData);
 
-    // Implement submission logic (API call or database update)
-    toast.success("Tour added successfully!");
+    try {
+      // Send the form data via POST request using axiosPublic
+      const response = await axiosPublic.post("/add-package", tourData);
+      // /get-packages/:id
+      // Handle the response if needed (you can inspect response data if necessary)
+      console.log("Tour added response:", response);
 
-    // Reset form fields to their initial state
-    setFormData({
-      title: "",
-      country: "",
-      location: "",
-      duration: "",
-      image: "",
-      description: "",
-      activities: [""],
-      itinerary: [""],
-      highlights: [""],
-      tips: [""],
-      price: "",
-      gallery: [""],
-    });
+      // Success toast notification
+      toast.success("Tour added successfully!");
+
+      // Reset form fields to their initial state after a successful submission
+      setFormData({
+        title: "",
+        country: "",
+        location: "",
+        duration: "",
+        image: "",
+        description: "",
+        activities: [""],
+        itinerary: [""],
+        highlights: [""],
+        tips: [""],
+        price: 0, // Reset price to 0
+        gallery: [""],
+      });
+    } catch (error) {
+      // Handle any errors from the POST request
+      console.error("Error submitting tour data:", error);
+      toast.error("Failed to add the tour. Please try again.");
+    }
   };
+
+  // const handleSubmit = (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   console.log("Tour Data Submitted:", formData);
+
+  //   // Implement submission logic (API call or database update)
+  //   toast.success("Tour added successfully!");
+
+  //   // Reset form fields to their initial state
+  //   setFormData({
+  //     title: "",
+  //     country: "",
+  //     location: "",
+  //     duration: "",
+  //     image: "",
+  //     description: "",
+  //     activities: [""],
+  //     itinerary: [""],
+  //     highlights: [""],
+  //     tips: [""],
+  //     price: 0, // Reset price to 0
+  //     gallery: [""],
+  //   });
+  // };
 
   return (
     <div className="bg-gray-50 min-h-screen container mx-auto px-4">

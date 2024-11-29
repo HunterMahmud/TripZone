@@ -13,6 +13,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const tourData = {
+  id: 1,
   title: "Majestic Himalayas",
   country: "Bangladesh",
   location: "Sundarbon",
@@ -66,6 +67,7 @@ const user: User = {
 
 // Tour data type
 interface TourFormData {
+  id: number;
   fullName: string;
   email: string;
   phone: string;
@@ -74,6 +76,10 @@ interface TourFormData {
   duration: string;
   date: string;
   specialRequests?: string;
+  tourTitle: string;
+  tourCountry: string;
+  tourLocation: string;
+  tourPrice: number;
 }
 
 const TourDetails: React.FC = () => {
@@ -83,6 +89,7 @@ const TourDetails: React.FC = () => {
   // const defaultDuration = parseInt(tourData.duration.split(" ")[0]) || 0;
 
   const [formData, setFormData] = useState<TourFormData>({
+    id: tourData.id,
     fullName: "",
     email: user?.email,
     phone: "",
@@ -91,6 +98,10 @@ const TourDetails: React.FC = () => {
     duration: tourData?.duration,
     date: "",
     specialRequests: "",
+    tourTitle: tourData.title,
+    tourCountry: tourData.country,
+    tourLocation: tourData.location,
+    tourPrice: tourData.price,
   });
 
   const handleChange = (
@@ -119,11 +130,17 @@ const TourDetails: React.FC = () => {
       return;
     }
 
+    const packageData = {
+      ...formData,
+      bookingDate: new Date(),
+    };
+
     try {
-      console.log("Booking Data:", formData);
+      console.log("Booking Data:", packageData);
       toast.success("Booking submitted successfully!");
 
       setFormData({
+        id: tourData.id,
         fullName: "",
         email: user?.email,
         phone: "",
@@ -132,6 +149,10 @@ const TourDetails: React.FC = () => {
         duration: tourData?.duration,
         date: "",
         specialRequests: "",
+        tourTitle: tourData.title,
+        tourCountry: tourData.country,
+        tourLocation: tourData.location,
+        tourPrice: tourData.price,
       });
 
       setShowModal(false);
