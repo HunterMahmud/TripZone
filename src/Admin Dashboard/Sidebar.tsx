@@ -1,21 +1,22 @@
 import { useState, FC } from "react";
 import { GrLogout } from "react-icons/gr";
 import { AiOutlineClose } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { GoHomeFill } from "react-icons/go";
 import { FaUsers } from "react-icons/fa6";
 import { MdPayments } from "react-icons/md";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { BsPersonWorkspace } from "react-icons/bs";
 import MenuItem from "./MenuItem";
+import useAuth from "../hooks/useAuth";
 // import { CgProfile } from "react-icons/cg";
 
 // import useAuth from "../../Hook/useAuth";
 // import useRole from "../../Hook/useRole";
 
 const Sidebar: FC = () => {
-  // const { logOut } = useAuth();
-  // const navigate = useNavigate();
+  const { logOut } = useAuth();
+  const navigate = useNavigate();
   const [isActive, setActive] = useState<boolean>(false); // Explicitly typed as boolean
   // const [role] = useRole(); // Assuming `useRole` returns an array
   // const [toggle, setToggle] = useState<boolean>(true); // Explicitly typed as boolean
@@ -25,15 +26,15 @@ const Sidebar: FC = () => {
     setActive(!isActive);
   };
 
-  // const handleLogoutBtn = async (): Promise<void> => {
-  //   try {
-  //     await logOut();
-  //     navigate("/");
-  //     console.log("Sign Out Successfully");
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
+  const handleLogoutBtn = async (): Promise<void> => {
+    try {
+      await logOut();
+      navigate("/");
+      console.log("Sign Out Successfully");
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const role = {
     role: "admin",
@@ -138,7 +139,7 @@ const Sidebar: FC = () => {
           <div>
             <div className="md:-mt-28">
               <button
-                // onClick={handleLogoutBstn}
+                onClick={handleLogoutBtn}
                 className="flex w-full items-center px-4 py-2 text-gray-600  transition-colors duration-300 transform"
               >
                 <GrLogout className="text-2xl text-secondary" />
