@@ -3,9 +3,11 @@ import MainLayout from "../layout/MainLayout";
 import Home from "../pages/Home";
 import Contact from "../pages/Contact/Contact";
 import BlogLayout from "../pages/Blog/BlogLayout";
-import ManageUsers from "../Pages/Admin/ManageUsers";
+import About from "../pages/About";
+import ManageUsers from "../pages/Admin/ManageUsers";
 import AdminDashboardLayout from "../layout/AdminDashboardLayout";
 import Statistics from "../Admin Dashboard/Statistics";
+
 
 const router = createBrowserRouter([
   {
@@ -24,6 +26,10 @@ const router = createBrowserRouter([
         path: "/blog",
         element: <BlogLayout />,
       },
+    {
+      path: "/about",
+      element: <About/>
+    }
     ],
   },
 
