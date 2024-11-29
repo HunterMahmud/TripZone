@@ -3,6 +3,7 @@ import { useState } from "react";
 const AddPackage: React.FC = () => {
   const [formData, setFormData] = useState({
     title: "",
+    country:"",
     location: "",
     duration: "",
     image: "",
@@ -10,7 +11,7 @@ const AddPackage: React.FC = () => {
     activities: [""],
     itinerary: [""],
     highlights: [""],
-    bestTime: "",
+    // bestTime: "",
     tips: [""],
     price: "",
     // accommodation: "",
@@ -82,6 +83,21 @@ const AddPackage: React.FC = () => {
 
           <div>
             <label className="block text-[#0f2454] font-barlow mb-2">
+              Country
+            </label>
+            <input
+              type="text"
+              name="country"
+              value={formData.country}
+              onChange={handleChange}
+              placeholder="Enter country"
+              required
+              className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#2095ae]"
+            />
+          </div>
+
+          <div>
+            <label className="block text-[#0f2454] font-barlow mb-2">
               Location
             </label>
             <input
@@ -138,7 +154,7 @@ const AddPackage: React.FC = () => {
               className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#2095ae]"
             />
           </div>
-          <div>
+          {/* <div>
             <label className="block text-[#0f2454] font-barlow mb-2">
               Best Time
             </label>
@@ -151,7 +167,7 @@ const AddPackage: React.FC = () => {
               required
               className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#2095ae]"
             />
-          </div>
+          </div> */}
         </div>
         <div className="mt-6">
           <label className="block text-[#0f2454] font-barlow mb-2">

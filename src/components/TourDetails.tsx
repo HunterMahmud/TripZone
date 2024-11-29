@@ -6,6 +6,7 @@ import {
   FaMountain,
   FaLightbulb,
   FaCreditCard,
+  FaMapMarkerAlt,
 } from "react-icons/fa";
 import { MdOutlineTipsAndUpdates } from "react-icons/md";
 import { toast } from "react-toastify";
@@ -13,7 +14,8 @@ import "react-toastify/dist/ReactToastify.css";
 
 const tourData = {
   title: "Majestic Himalayas",
-  location: "Nepal",
+  country: "Bangladesh",
+  location: "Sundarbon",
   duration: "10 Days / 9 Nights",
   image: "https://i.ibb.co/b5tJ24P/pexels-matthew-montrone-230847-1324803.jpg",
   description:
@@ -65,6 +67,7 @@ interface TourFormData {
   fullName: string;
   email: string;
   phone: string;
+  travelGuide: string;
   passengers: string;
   duration: string;
   date: string;
@@ -81,6 +84,7 @@ const TourDetails: React.FC = () => {
     fullName: "",
     email: user?.email,
     phone: "",
+    travelGuide: "",
     passengers: "",
     duration: tourData?.duration,
     date: "",
@@ -88,12 +92,15 @@ const TourDetails: React.FC = () => {
   });
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
   ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -118,6 +125,7 @@ const TourDetails: React.FC = () => {
         fullName: "",
         email: user?.email,
         phone: "",
+        travelGuide: "",
         passengers: "",
         duration: tourData?.duration,
         date: "",
@@ -133,6 +141,7 @@ const TourDetails: React.FC = () => {
 
   const {
     title,
+    country,
     location,
     image,
     description,
@@ -163,8 +172,9 @@ const TourDetails: React.FC = () => {
           <h2 className="text-5xl font-popins font-bold text-white mt-2 max-w-2xl z-10">
             {title}
           </h2>
-          <p className="text-2xl font-bold text-[#2095ae] font-barlow mt-2 z-10">
-            {location}
+          <p className="text-2xl font-bold text-[#2095ae] font-barlow mt-2 z-10 flex items-center">
+            <FaMapMarkerAlt className="mr-2" />
+            {location}, {country}
           </p>
         </div>
       </div>
@@ -349,10 +359,33 @@ const TourDetails: React.FC = () => {
                     disabled
                     value={formData.duration}
                     onChange={handleChange}
-                    min="1"
                     placeholder="Duration (Days)"
                     className="border border-gray-300 rounded p-3"
                   />
+                </div>
+                <div className="mt-4">
+                  <label
+                    htmlFor="travelGuide"
+                    className="block text-gray-700 font-barlow mb-2"
+                  >
+                    Choose Your Travel Guide
+                  </label>
+                  <select
+                    name="travelGuide"
+                    required
+                    value={formData.travelGuide}
+                    onChange={handleChange}
+                    className="w-full border border-gray-300 rounded p-3"
+                  >
+                    <option value="" disabled>
+                      Select a Guide
+                    </option>
+                    <option value="Shamim">Shamim</option>
+                    <option value="Mahmud">Mahmud</option>
+                    <option value="Hisam">Hisam</option>
+                    <option value="Antor">Antor</option>
+                    <option value="Shohana">Shohana</option>
+                  </select>
                 </div>
                 <textarea
                   name="specialRequests"
