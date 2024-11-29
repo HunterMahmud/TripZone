@@ -1,4 +1,5 @@
-import ab from "../../public/ab.jpg"
+// import ab from "../../public/ab.jpg"
+import ab from '../assets/ab.jpg'
 import { FaStar } from "react-icons/fa6";
 
 // Swiper

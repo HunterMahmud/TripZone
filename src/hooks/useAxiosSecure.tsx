@@ -4,9 +4,11 @@ import useAuth from './useAuth';
 
 
 const axiosSecure = axios.create({
-    baseURL: 'http://localhost:3000',
-    // baseURL: 'https://trip-zone-server.vercel.app',
+    // baseURL: 'http://localhost:3000',
+    baseURL: import.meta.env.VITE_BASE_URL,
 })
+console.log(import.meta.env.VITE_BASE_URL);
+
 
 const useAxiosSecure = () => {
     const navigate = useNavigate();
