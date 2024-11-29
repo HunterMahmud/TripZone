@@ -1,9 +1,10 @@
 import { useState } from "react";
-
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const AddPackage: React.FC = () => {
   const [formData, setFormData] = useState({
     title: "",
-    country:"",
+    country: "",
     location: "",
     duration: "",
     image: "",
@@ -51,8 +52,25 @@ const AddPackage: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Tour Data Submitted:", formData);
+
     // Implement submission logic (API call or database update)
-    alert("Tour added successfully!");
+    toast.success("Tour added successfully!");
+
+    // Reset form fields to their initial state
+    setFormData({
+      title: "",
+      country: "",
+      location: "",
+      duration: "",
+      image: "",
+      description: "",
+      activities: [""],
+      itinerary: [""],
+      highlights: [""],
+      tips: [""],
+      price: "",
+      gallery: [""],
+    });
   };
 
   return (
@@ -219,7 +237,7 @@ const AddPackage: React.FC = () => {
             handleRemoveField={handleRemoveField}
           />
           <DynamicFields
-            title="Gallery" // New gallery section
+            title="Gallery Image" // New gallery section
             fieldName="gallery"
             // name="image"
             data={formData.gallery}
