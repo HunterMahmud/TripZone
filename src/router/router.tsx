@@ -27,7 +27,7 @@ const router = createBrowserRouter([
         element: <BlogLayout />,
       },
       {
-        path: "/tourDetails",
+        path: "/tour-details",
         element: <TourDetails />,
       },
     ],

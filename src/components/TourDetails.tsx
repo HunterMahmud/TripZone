@@ -160,7 +160,7 @@ const TourDetails: React.FC = () => {
           <h4 className="text-xl font-barlow font-semibold text-white z-10">
             Explore
           </h4>
-          <h2 className="text-5xl font-poppins font-bold text-white mt-2 max-w-2xl z-10">
+          <h2 className="text-5xl font-popins font-bold text-white mt-2 max-w-2xl z-10">
             {title}
           </h2>
           <p className="text-2xl font-bold text-[#2095ae] font-barlow mt-2 z-10">
@@ -172,7 +172,7 @@ const TourDetails: React.FC = () => {
       <section className="container mx-auto mb-16">
         {/* Details Section */}
         <section className="mt-8 bg-white p-6 rounded-lg shadow-lg">
-          <h2 className="text-2xl font-semibold text-[#0f2454] font-poppins">
+          <h2 className="text-2xl font-semibold text-[#0f2454] font-popins">
             Description
           </h2>
           <p className="text-gray-700 font-barlow mt-2 leading-7">
@@ -182,7 +182,7 @@ const TourDetails: React.FC = () => {
           <div className="md:grid grid-cols-2">
             {/* Itinerary */}
             <div className="mt-4">
-              <h3 className="text-xl font-semibold text-[#0f2454] font-poppins flex items-center">
+              <h3 className="text-xl font-semibold text-[#0f2454] font-popins flex items-center">
                 <FaCalendarAlt className="mr-2 text-[#2095ae]" />
                 Itinerary
               </h3>
@@ -195,7 +195,7 @@ const TourDetails: React.FC = () => {
 
             {/* Highlights */}
             <div className="mt-4">
-              <h3 className="text-xl font-semibold text-[#0f2454] font-poppins flex items-center">
+              <h3 className="text-xl font-semibold text-[#0f2454] font-popins flex items-center">
                 <FaMountain className="mr-2 text-[#2095ae]" />
                 Highlights
               </h3>
@@ -208,7 +208,7 @@ const TourDetails: React.FC = () => {
 
             {/* Activities */}
             <div className="mt-4">
-              <h3 className="text-xl font-semibold text-[#0f2454] font-poppins flex items-center">
+              <h3 className="text-xl font-semibold text-[#0f2454] font-popins flex items-center">
                 <FaClipboardList className="mr-2 text-[#2095ae]" />
                 Activities
               </h3>
@@ -221,7 +221,7 @@ const TourDetails: React.FC = () => {
 
             {/* Best Time */}
             <div className="mt-4">
-              <h3 className="text-xl font-semibold text-[#0f2454] font-poppins flex items-center">
+              <h3 className="text-xl font-semibold text-[#0f2454] font-popins flex items-center">
                 <MdOutlineTipsAndUpdates className="mr-2 text-[#2095ae]" />
                 Best Time to Visit
               </h3>
@@ -230,7 +230,7 @@ const TourDetails: React.FC = () => {
 
             {/* Tips */}
             <div className="mt-4">
-              <h3 className="text-xl font-semibold text-[#0f2454] font-poppins flex items-center">
+              <h3 className="text-xl font-semibold text-[#0f2454] font-popins flex items-center">
                 <FaLightbulb className="mr-2 text-[#2095ae]" />
                 Travel Tips
               </h3>
@@ -243,7 +243,7 @@ const TourDetails: React.FC = () => {
 
             {/* Pricing Info */}
             <div className="mt-6">
-              <h3 className="text-xl font-semibold text-[#0f2454] font-poppins flex items-center">
+              <h3 className="text-xl font-semibold text-[#0f2454] font-popins flex items-center">
                 <FaCreditCard className="mr-2 text-[#2095ae]" />
                 Pricing Info
               </h3>
@@ -262,7 +262,7 @@ const TourDetails: React.FC = () => {
 
         {/* Gallery */}
         <section className="mt-8 p-6">
-          <h2 className="text-2xl font-semibold text-[#0f2454] font-poppins">
+          <h2 className="text-2xl font-semibold text-[#0f2454] font-popins">
             Gallery
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4">
@@ -281,7 +281,7 @@ const TourDetails: React.FC = () => {
         <div className="mt-8 text-center">
           <button
             onClick={() => setShowModal(true)}
-            className="bg-[#0f2454] text-white py-3 px-6 rounded font-poppins text-lg hover:bg-[#2095ae] transition-all"
+            className="bg-[#0f2454] text-white py-3 px-6 rounded font-popins text-lg hover:bg-[#2095ae] transition-all"
           >
             Book Now
           </button>
@@ -291,7 +291,7 @@ const TourDetails: React.FC = () => {
         {showModal && (
           <div className="fixed z-50 inset-0 bg-black bg-opacity-50 flex items-center justify-center">
             <div className="bg-white p-8 rounded-lg shadow-lg max-w-lg">
-              <h2 className="text-2xl font-semibold text-[#0f2454] font-poppins">
+              <h2 className="text-2xl font-semibold text-[#0f2454] font-popins">
                 Book Your Trip
               </h2>
               <form onSubmit={handleSubmit} className="mt-4">

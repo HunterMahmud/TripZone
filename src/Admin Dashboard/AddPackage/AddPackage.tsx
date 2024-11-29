@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 
 const AddPackage: React.FC = () => {
@@ -61,7 +60,7 @@ const AddPackage: React.FC = () => {
         onSubmit={handleSubmit}
         className="w-full  bg-white p-8 rounded-lg shadow-lg"
       >
-        <h1 className="text-3xl font-bold text-[#0f2454] font-poppins mb-6">
+        <h1 className="text-3xl font-bold text-[#0f2454] font-popins mb-6">
           Add New Tour
         </h1>
 
@@ -264,7 +263,7 @@ const AddPackage: React.FC = () => {
         <div className="text-center mt-8">
           <button
             type="submit"
-            className="bg-[#0f2454] text-white font-poppins py-3 px-6 rounded-lg hover:bg-[#2095ae] transition duration-200"
+            className="bg-[#0f2454] text-white font-popins py-3 px-6 rounded-lg hover:bg-[#2095ae] transition duration-200"
           >
             Add Tour
           </button>
@@ -303,7 +302,7 @@ const DynamicFields: React.FC<DynamicFieldsProps> = ({
 }) => {
   return (
     <div className="mt-6">
-      <h3 className="text-xl font-semibold font-poppins text-[#0f2454]">
+      <h3 className="text-xl font-semibold font-popins text-[#0f2454]">
         {title}
       </h3>
       {data.map((item, index) => (
@@ -332,7 +331,7 @@ const DynamicFields: React.FC<DynamicFieldsProps> = ({
       <button
         type="button"
         onClick={() => handleAddField(fieldName)}
-        className="mt-3 bg-[#2095ae] text-white font-poppins py-2 px-4 rounded-lg"
+        className="mt-3 bg-[#2095ae] text-white font-popins py-2 px-4 rounded-lg"
       >
         Add {title} Item
       </button>
