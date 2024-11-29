@@ -5,7 +5,7 @@ import useAuth from './useAuth';
 
 const axiosSecure = axios.create({
     baseURL: 'http://localhost:3000',
-    // baseURL: 'https://thrive-fit-server.vercel.app',
+    // baseURL: 'https://trip-zone-server.vercel.app',
 })
 
 const useAxiosSecure = () => {
