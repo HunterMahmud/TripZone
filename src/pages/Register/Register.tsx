@@ -22,6 +22,7 @@ const Register = () => {
 
   const onSubmitRegister = (data) => {
     const { email, password, photoURL, name } = data;
+    console.log({email, password, name});
 
     emailPasswordRegister(email, password)
       .then((res) => {

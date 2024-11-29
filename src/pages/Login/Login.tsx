@@ -49,7 +49,7 @@ const Login: React.FC = () => {
           name: res.user?.displayName,
         };
         axiosPublic.post("/user", userInfo).then((res) => {
-          // console.log(res.data);
+          console.log(res.data);
           navigate(location?.state ? location.state : "/");
         });
 
