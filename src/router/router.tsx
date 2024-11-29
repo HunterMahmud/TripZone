@@ -4,6 +4,10 @@ import Home from "../pages/Home";
 import Contact from "../pages/Contact/Contact";
 import BlogLayout from "../pages/Blog/BlogLayout";
 import About from "../pages/About";
+import ManageUsers from "../pages/Admin/ManageUsers";
+import AdminDashboardLayout from "../layout/AdminDashboardLayout";
+import Statistics from "../Admin Dashboard/Statistics";
+
 
 const router = createBrowserRouter([
   {
@@ -28,6 +32,51 @@ const router = createBrowserRouter([
     }
     ],
   },
+
+  // Admin Dashboard Layout
+  {
+    path: "/dashboard",
+    element: <AdminDashboardLayout />,
+    children: [
+      {
+        index: true,
+        element: (
+          <Statistics />
+
+        ),
+      },
+      {
+        path: "manage-users",
+        element: (
+          <ManageUsers />
+          
+        ),
+      },
+      {
+        path: "manage-packages",
+        element: (
+          <ManageUsers />
+          
+        ),
+      },
+      {
+        path: "manage-booking",
+        element: (
+          <ManageUsers />
+          
+        ),
+      },
+      {
+        path: "add-package",
+        element: (
+          <ManageUsers />
+          
+        ),
+      },
+      
+    ],
+  },
+  
 ]);
 
 export default router;
