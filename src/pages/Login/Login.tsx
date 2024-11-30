@@ -7,6 +7,11 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import useAuth from "../../hooks/useAuth";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 
+interface LoginFormData {
+  email: string;
+  password: string;
+}
+
 const Login: React.FC = () => {
   const axiosPublic = useAxiosPublic();
   const [showPass, setShowPass] = useState(false);
@@ -14,12 +19,12 @@ const Login: React.FC = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<{ email: string; password: string }>();
+  } = useForm<LoginFormData>();
   const { emailPasswordLogIn, googleLogin } = useAuth()!;
   const location = useLocation();
   const navigate = useNavigate();
 
-  const onSubmitLogin = (data: { email: string; password: string }) => {
+  const onSubmitLogin = (data: LoginFormData) => {
     emailPasswordLogIn(data.email, data.password)
       .then((res: any) => {
         toast.success("Login success.");
