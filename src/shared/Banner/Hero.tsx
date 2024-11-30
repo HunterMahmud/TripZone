@@ -18,7 +18,7 @@ const Hero: React.FC<HeroProps> = ({
 }) => {
     return (
         <div
-            className={`relative bg-cover bg-top py-44`}
+            className={`relative bg-cover bg-top py-44 bg-fixed`}
             style={{ backgroundImage: `url(${backgroundImage})` }}
         >
             {/* Overlay */}

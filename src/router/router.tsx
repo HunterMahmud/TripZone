@@ -3,7 +3,6 @@ import MainLayout from "../layout/MainLayout";
 import Home from "../pages/Home";
 import Contact from "../pages/Contact/Contact";
 import BlogLayout from "../pages/Blog/BlogLayout";
-import ToursLayout from "../pages/Tours/ToursLayout";
 import TourDetails from "../components/TourDetails";
 import Login from "../pages/Login/Login";
 import Register from "./../pages/Register/Register";
@@ -12,6 +11,7 @@ import ManageUsers from "../pages/Admin/ManageUsers";
 import AdminDashboardLayout from "../layout/AdminDashboardLayout";
 import Statistics from "../Admin Dashboard/Statistics";
 import AddPackage from "../Admin Dashboard/AddPackage/AddPackage";
+import ToursLayout from "../pages/Tours/ToursLayout";
 
 const router = createBrowserRouter([
   {
@@ -41,8 +41,14 @@ const router = createBrowserRouter([
       {
         path: "/blogs",
         element: <BlogLayout />,
+      },
+      {
         path: "/about",
         element: <About />,
+      },
+      {
+        path: "/tours",
+        element: <ToursLayout />
       },
       {
         path: "/tour-details",
