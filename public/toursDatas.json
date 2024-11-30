@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "agency": "Travel Agency",
+        "title": "Soneva Jani Maldives",
+        "review": 2,
+        "duration": "5 Days 4 Nights",
+        "group": "5 - 10 People",
+        "location": "Maldives",
+        "super_deal": 9.3,
+        "price": 400,
+        "image": "https://duruthemes.com/demo/html/travol/multipage-slider/img/tours/maldives1.jpg"
+    },
+    {
+        "id": 2,
+        "agency": "Travel Agency",
+        "title": "Soneva Jani Maldives",
+        "review": 2,
+        "duration": "5 Days 4 Nights",
+        "group": "5 - 10 People",
+        "location": "Maldives",
+        "super_deal": 9.3,
+        "price": 400,
+        "image": "https://duruthemes.com/demo/html/travol/multipage-slider/img/tours/italy1.jpg"
+    },
+    {
+        "id": 3,
+        "agency": "Travel Agency",
+        "title": "Soneva Jani Maldives",
+        "review": 2,
+        "duration": "5 Days 4 Nights",
+        "group": "5 - 10 People",
+        "location": "Maldives",
+        "super_deal": 9.3,
+        "price": 400,
+        "image": "https://duruthemes.com/demo/html/travol/multipage-slider/img/tours/france1.jpg"
+    },
+    {
+        "id": 4,
+        "agency": "Travel Agency",
+        "title": "Soneva Jani Maldives",
+        "review": 2,
+        "duration": "5 Days 4 Nights",
+        "group": "5 - 10 People",
+        "location": "Maldives",
+        "super_deal": 9.3,
+        "price": 400,
+        "image": "https://duruthemes.com/demo/html/travol/multipage-slider/img/tours/greece1.jpg"
+    },
+    {
+        "id": 5,
+        "agency": "Travel Agency",
+        "title": "Soneva Jani Maldives",
+        "review": 2,
+        "duration": "5 Days 4 Nights",
+        "group": "5 - 10 People",
+        "location": "Maldives",
+        "super_deal": 9.3,
+        "price": 400,
+        "image": "https://duruthemes.com/demo/html/travol/multipage-slider/img/tours/canada1.jpg"
+    },
+    {
+        "id": 6,
+        "agency": "Travel Agency",
+        "title": "Soneva Jani Maldives",
+        "review": 2,
+        "duration": "5 Days 4 Nights",
+        "group": "5 - 10 People",
+        "location": "Maldives",
+        "super_deal": 9.3,
+        "price": 400,
+        "image": "https://duruthemes.com/demo/html/travol/multipage-slider/img/tours/canada1.jpg"
+    }
+]

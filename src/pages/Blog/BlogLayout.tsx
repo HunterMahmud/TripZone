@@ -35,7 +35,7 @@ const BlogLayout: React.FC = () => {
             {/* Banner */}
             <BlogBanner />
             {/* Card */}
-            <div className='container mx-auto grid grid-cols-3 my-32 gap-6'>
+            <div className='container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-32 gap-6 px-4'>
                 {blogs.map(item => <BlogCard key={item.id} item={item}/>)}
             </div>
         </div>
