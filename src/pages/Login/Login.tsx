@@ -26,7 +26,7 @@ const Login: React.FC = () => {
 
   const onSubmitLogin = (data: LoginFormData) => {
     emailPasswordLogIn(data.email, data.password)
-      .then((res: any) => {
+      .then(() => {
         toast.success("Login success.");
         navigate(location?.state || "/");
       })
