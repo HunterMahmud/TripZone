@@ -3,63 +3,54 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { Helmet } from "react-helmet-async";
 import { useState } from "react";
-import { FaEye } from "react-icons/fa";
-import { FaEyeSlash } from "react-icons/fa";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import useAuth from "../../hooks/useAuth";
-import useAxiosPublic from "./../../hooks/useAxiosPublic";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
+
+interface LoginFormData {
+  email: string;
+  password: string;
+}
 
 const Login: React.FC = () => {
-  // const axiosSecure = useAxiosSecure();
   const axiosPublic = useAxiosPublic();
   const [showPass, setShowPass] = useState(false);
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
-
-  const { emailPasswordLogIn, googleLogin } = useAuth();
+  } = useForm<LoginFormData>();
+  const { emailPasswordLogIn, googleLogin } = useAuth()!;
   const location = useLocation();
   const navigate = useNavigate();
-  // console.log(location);
 
-  const onSubmitLogin = (data) => {
-    // console.log(data);
-    const { email, password } = data;
-    emailPasswordLogIn(email, password)
-      .then((res) => {
-        // console.log(res.user);
-        if (res) {
-          toast.success("Login success.");
-          navigate(location?.state ? location.state : "/");
-        }
+  const onSubmitLogin = (data: LoginFormData) => {
+    emailPasswordLogIn(data.email, data.password)
+      .then(() => {
+        toast.success("Login success.");
+        navigate(location?.state || "/");
       })
-      .catch((err) => {
-        // console.log(err);
+      .catch((err: any) => {
+        console.error(err);
         toast.error("Login failed. Invalid credentials");
       });
   };
+
   const handleLoginWithGoogle = () => {
     googleLogin()
-      .then((res) => {
-        // console.log(res.user?.email);
-        toast.success("Login success.");
-        const userInfo = {
-          email: res.user?.email,
-          name: res.user?.displayName,
-        };
-        axiosPublic.post("/user", userInfo).then((res) => {
-          console.log(res.data);
-          navigate(location?.state ? location.state : "/");
+      .then((res: { user: { email: string; displayName: string } }) => {
+        const userInfo = { email: res.user.email, name: res.user.displayName };
+        axiosPublic.post("/user", userInfo).then((response: any) => {
+          console.log(response.data);
+          navigate(location?.state || "/");
         });
-
-        //
       })
-      .catch((err) => {
-        // console.log(err);
+      .catch((err: any) => {
+        console.error(err);
         toast.error("Login failed. Invalid credentials");
       });
   };
+
   return (
     <div className="mx-2">
       <Helmet>
@@ -67,74 +58,69 @@ const Login: React.FC = () => {
       </Helmet>
       <div
         data-aos="zoom-in"
-        className="w-full mb-9 max-w-md mx-auto mt-12 p-8 space-y-3 rounded-xl  border border-gray-200  bg-white  text-black shadow-lg"
+        className="w-full mb-9 max-w-md mx-auto mt-12 p-8 space-y-3 rounded-xl border border-gray-200 bg-white text-black shadow-lg"
       >
-        <h1 className="text-2xl font-bold text-center text-black font-bugrasimo ">
+        <h1 className="text-2xl font-bold text-center text-black font-bugrasimo">
           Login
         </h1>
         <form onSubmit={handleSubmit(onSubmitLogin)} className="space-y-6">
           <div className="space-y-1 text-sm">
-            <label htmlFor="email" className="block text-gray-900 ">
+            <label htmlFor="email" className="block text-gray-900">
               Email
             </label>
             <input
               {...register("email", {
-                required: {
-                  value: true,
-                  message: "This field is required.",
-                },
+                required: { value: true, message: "This field is required." },
               })}
               type="email"
               name="email"
               placeholder="Email"
-              className="w-full  placeholder:text-gray-700 px-4 py-3 rounded-md border-2 border-gray-500 bg-main text-gray-800 focus:border-violet-100 bg-transparent appearance-none"
+              className="w-full placeholder:text-gray-700 px-4 py-3 rounded-md border-2 border-gray-500 bg-main text-gray-800 focus:border-violet-100 bg-transparent appearance-none"
             />
-            {errors?.email?.message && (
-              <span className="text-red-500">{errors.email.message}</span>
+            {errors.email?.message && (
+              <span className="text-red-500">
+                {typeof errors.email.message === "string"
+                  ? errors.email.message
+                  : "Invalid input"}
+              </span>
             )}
           </div>
           <div className="space-y-1 text-sm">
-            <label htmlFor="password" className="block text-gray-900 ">
+            <label htmlFor="password" className="block text-gray-900">
               Password
             </label>
-
             <div className="relative">
               <input
                 {...register("password", {
-                  required: {
-                    value: true,
-                    message: "This field is required.",
-                  },
+                  required: { value: true, message: "This field is required." },
                 })}
                 type={showPass ? "text" : "password"}
                 name="password"
                 id="password"
                 placeholder="Password"
-                className="w-full  placeholder:text-gray-700 px-4 py-3 rounded-md border-2 border-gray-500 bg-main text-gray-800 focus:border-violet-100 bg-transparent appearance-none"
+                className="w-full placeholder:text-gray-700 px-4 py-3 rounded-md border-2 border-gray-500 bg-main text-gray-800 focus:border-violet-100 bg-transparent appearance-none"
               />
               <span
-                className="absolute top-4 right-3 text-black  cursor-pointer p-1"
-                onClick={() => {
-                  setShowPass(!showPass);
-                }}
+                className="absolute top-4 right-3 text-black cursor-pointer p-1"
+                onClick={() => setShowPass(!showPass)}
               >
                 {showPass ? <FaEye /> : <FaEyeSlash />}
               </span>
             </div>
-
-            {errors?.password?.message && (
-              <span className="text-red-500">{errors.password.message}</span>
+            {errors.password?.message && (
+              <span className="text-red-500">
+                {typeof errors.password.message === "string"
+                  ? errors.password.message
+                  : "Invalid input"}
+              </span>
             )}
           </div>
-
-          <div className="mt-5">
-            <button
-              type="submit"
-              className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none font-bugrasimo"
-            >
-              Login
-            </button>
-          </div>
+          <button
+            type="submit"
+            className="w-full py-3 px-4 text-sm font-semibold rounded-lg bg-blue-600 text-white hover:bg-blue-700"
+          >
+            Login
+          </button>
         </form>
         <div className="flex items-center pt-4 space-x-1">
           <div className="flex-1 h-px sm:w-16 bg-gray-200"></div>
