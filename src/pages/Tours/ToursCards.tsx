@@ -11,16 +11,15 @@ interface DataProps {
     super_deal: number;
     price: number;
     image: string;
-    className: string;
 }
 
 const ToursCards: React.FC<{ data: DataProps }> = ({ data }) => {
     return (
         <div
-            className={`relative bg-center bg-cover group bg-no-repeat transition-all duration-500 ease-in-out flex rounded-sm cursor-pointer ${data.className ? data.className : "h-[400px]"}`}
+            className={`relative bg-center bg-cover group bg-no-repeat transition-all duration-500 ease-in-out flex rounded-sm cursor-pointer h-[700px]`}
             style={{
                 backgroundImage: `url(${data.image})`,
-                transition: '100% 0.5s ease-in-out',
+                // transition: '100% 0.5s ease-in-out',
             }}
         >
             {/* Overlay */}

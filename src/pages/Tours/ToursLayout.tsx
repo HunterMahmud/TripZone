@@ -14,7 +14,6 @@ interface Tour {
     super_deal: number;
     price: number;
     image: string;
-    className: string;
 }
 
 const ToursLayout: React.FC = () => {
@@ -34,14 +33,14 @@ const ToursLayout: React.FC = () => {
                 subHeading="Choose your tour"
                 title="Popular Tours"
             />
-            <div className='container mx-auto mt-16 mb-20'>
+            <div className='container mx-auto mt-16 mb-20 px-6'>
                 <TitleHeader
                     subHeading="Choose your place"
                     title="Popular Tours"
                     subHeadingClassName={"!text-primary uppercase"}
                     firstWordColor={'!text-primary'}
                 />
-                <div className='grid grid-cols-3 gap-6 mt-16'>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-16'>
                     {tours.map(data =>
                         <ToursCards key={data.id} data={data} />
                     )}

@@ -9,8 +9,7 @@
         "location": "Maldives",
         "super_deal": 9.3,
         "price": 400,
-        "image": "https://duruthemes.com/demo/html/travol/multipage-slider/img/tours/maldives1.jpg",
-        "className": "col-span-2 h-[700px]"
+        "image": "https://duruthemes.com/demo/html/travol/multipage-slider/img/tours/maldives1.jpg"
     },
     {
         "id": 2,
@@ -22,8 +21,7 @@
         "location": "Maldives",
         "super_deal": 9.3,
         "price": 400,
-        "image": "https://duruthemes.com/demo/html/travol/multipage-slider/img/tours/italy1.jpg",
-        "className": "h-full"
+        "image": "https://duruthemes.com/demo/html/travol/multipage-slider/img/tours/italy1.jpg"
     },
     {
         "id": 3,
@@ -51,6 +49,18 @@
     },
     {
         "id": 5,
+        "agency": "Travel Agency",
+        "title": "Soneva Jani Maldives",
+        "review": 2,
+        "duration": "5 Days 4 Nights",
+        "group": "5 - 10 People",
+        "location": "Maldives",
+        "super_deal": 9.3,
+        "price": 400,
+        "image": "https://duruthemes.com/demo/html/travol/multipage-slider/img/tours/canada1.jpg"
+    },
+    {
+        "id": 6,
         "agency": "Travel Agency",
         "title": "Soneva Jani Maldives",
         "review": 2,
