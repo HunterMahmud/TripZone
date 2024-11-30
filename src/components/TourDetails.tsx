@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   FaDollarSign,
   FaCalendarAlt,
@@ -11,48 +11,49 @@ import {
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import useAxiosPublic from "../hooks/useAxiosPublic";
+import { useParams } from "react-router-dom";
 // import { useParams } from "react-router-dom";
 
-const tourData = {
-  id: 1,
-  title: "Majestic Himalayas",
-  country: "Bangladesh",
-  location: "Sundarbon",
-  duration: "10 Days / 9 Nights",
-  image: "https://i.ibb.co/b5tJ24P/pexels-matthew-montrone-230847-1324803.jpg",
-  description:
-    "Discover the beauty of the Himalayas, home to Mount Everest and a rich cultural heritage. Explore stunning trekking trails, ancient monasteries, and vibrant local communities.",
-  activities: [
-    "Trekking through scenic mountain trails",
-    "Visiting ancient Buddhist monasteries",
-    "Wildlife safari in Chitwan National Park",
-  ],
-  itinerary: [
-    "Day 1: Arrival in Kathmandu",
-    "Day 2: Kathmandu City Tour",
-    "Day 3-8: Trekking in the Everest Region",
-    "Day 9: Return to Kathmandu",
-    "Day 10: Departure",
-  ], // NEW: Itinerary for detailed planning
-  highlights: [
-    "Guided tours by experienced local guides",
-    "Explore vibrant Himalayan villages",
-    "Experience traditional Nepali cuisine",
-  ],
-  // bestTime: "March to May, September to November",
-  tips: ["Pack warm clothes", "Carry trekking gear", "Stay hydrated"],
-  gallery: [
-    "https://i.ibb.co/b5tJ24P/pexels-matthew-montrone-230847-1324803.jpg",
-    "https://i.ibb.co/b5tJ24P/pexels-matthew-montrone-230847-1324803.jpg",
-    "https://i.ibb.co/b5tJ24P/pexels-matthew-montrone-230847-1324803.jpg",
-  ],
-  price: 3000,
-  // costBreakdown: {
-  //   accommodation: "1400 USD",
-  //   meals: "600 USD",
-  //   activities: "1000 USD",
-  // },
-};
+// const tourData = {
+//   id: 1,
+//   title: "Majestic Himalayas",
+//   country: "Bangladesh",
+//   location: "Sundarbon",
+//   duration: "10 Days / 9 Nights",
+//   image: "https://i.ibb.co/b5tJ24P/pexels-matthew-montrone-230847-1324803.jpg",
+//   description:
+//     "Discover the beauty of the Himalayas, home to Mount Everest and a rich cultural heritage. Explore stunning trekking trails, ancient monasteries, and vibrant local communities.",
+//   activities: [
+//     "Trekking through scenic mountain trails",
+//     "Visiting ancient Buddhist monasteries",
+//     "Wildlife safari in Chitwan National Park",
+//   ],
+//   itinerary: [
+//     "Day 1: Arrival in Kathmandu",
+//     "Day 2: Kathmandu City Tour",
+//     "Day 3-8: Trekking in the Everest Region",
+//     "Day 9: Return to Kathmandu",
+//     "Day 10: Departure",
+//   ], // NEW: Itinerary for detailed planning
+//   highlights: [
+//     "Guided tours by experienced local guides",
+//     "Explore vibrant Himalayan villages",
+//     "Experience traditional Nepali cuisine",
+//   ],
+//   // bestTime: "March to May, September to November",
+//   tips: ["Pack warm clothes", "Carry trekking gear", "Stay hydrated"],
+//   gallery: [
+//     "https://i.ibb.co/b5tJ24P/pexels-matthew-montrone-230847-1324803.jpg",
+//     "https://i.ibb.co/b5tJ24P/pexels-matthew-montrone-230847-1324803.jpg",
+//     "https://i.ibb.co/b5tJ24P/pexels-matthew-montrone-230847-1324803.jpg",
+//   ],
+//   price: 3000,
+//   // costBreakdown: {
+//   //   accommodation: "1400 USD",
+//   //   meals: "600 USD",
+//   //   activities: "1000 USD",
+//   // },
+// };
 
 const travelGuides = ["Shamim", "Mahmud", "Hisam", "Antor", "Shohana"];
 
@@ -67,6 +68,22 @@ const user: User = {
 };
 
 // Tour data type
+interface TourData {
+  id: number;
+  title: string;
+  country: string;
+  location: string;
+  duration: string;
+  image: string;
+  description: string;
+  activities: string[];
+  itinerary: string[];
+  highlights: string[];
+  tips: string[];
+  gallery: string[];
+  price: number;
+}
+
 interface TourFormData {
   id: number;
   fullName: string;
@@ -84,28 +101,56 @@ interface TourFormData {
 }
 
 const TourDetails: React.FC = () => {
-  const [showModal, setShowModal] = useState(false);
-  const axiosPublic = useAxiosPublic();
-  // const { id } = useParams<{ id: string }>();
-
-  // Pre-fill extracted days dynamically
-  // const defaultDuration = parseInt(tourData.duration.split(" ")[0]) || 0;
-
+  const { id } = useParams();
+  const [tourData, setTourData] = useState<TourData | null>(null);
   const [formData, setFormData] = useState<TourFormData>({
-    id: tourData.id,
+    id: 0,
     fullName: "",
     email: user?.email,
     phone: "",
     travelGuide: "",
     passengers: "",
-    duration: tourData?.duration,
+    duration: "",
     date: "",
     specialRequests: "",
-    tourTitle: tourData.title,
-    tourCountry: tourData.country,
-    tourLocation: tourData.location,
-    tourPrice: tourData.price,
+    tourTitle: "",
+    tourCountry: "",
+    tourLocation: "",
+    tourPrice: 0,
   });
+  const [showModal, setShowModal] = useState(false);
+  const axiosPublic = useAxiosPublic();
+
+  useEffect(() => {
+    const fetchTourData = async () => {
+      try {
+        const response = await axiosPublic.get(`/get-packages/${id}`);
+        console.log(response.data.package);
+        setTourData(response.data?.package);
+
+        setFormData({
+          id: response.data.id,
+          fullName: "",
+          email: user?.email,
+          phone: "",
+          travelGuide: "",
+          passengers: "",
+          duration: response.data.duration,
+          date: "",
+          specialRequests: "",
+          tourTitle: response.data.title,
+          tourCountry: response.data.country,
+          tourLocation: response.data.location,
+          tourPrice: response.data.price,
+        });
+      } catch (error) {
+        console.error("Error fetching tour data:", error);
+        toast.error("Failed to load tour data. Please try again.");
+      }
+    };
+
+    fetchTourData();
+  }, [id, axiosPublic]);
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -113,14 +158,19 @@ const TourDetails: React.FC = () => {
     >
   ) => {
     const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+
+    setFormData((prevData) => {
+      if (!prevData) return prevData;
+      return {
+        ...prevData,
+        [name]: value,
+      };
+    });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!formData) return;
 
     if (
       !formData.fullName ||
@@ -140,26 +190,25 @@ const TourDetails: React.FC = () => {
     };
 
     try {
-      // Submit booking data using axiosPublic
       const response = await axiosPublic.post("/add-booking", bookingInfo);
       console.log("Booking Response:", response.data);
 
       toast.success("Booking submitted successfully!");
 
       setFormData({
-        id: tourData.id,
+        id: tourData!.id,
         fullName: "",
         email: user?.email,
         phone: "",
         travelGuide: "",
         passengers: "",
-        duration: tourData?.duration,
+        duration: tourData!.duration,
         date: "",
         specialRequests: "",
-        tourTitle: tourData.title,
-        tourCountry: tourData.country,
-        tourLocation: tourData.location,
-        tourPrice: tourData.price,
+        tourTitle: tourData!.title,
+        tourCountry: tourData!.country,
+        tourLocation: tourData!.location,
+        tourPrice: tourData!.price,
       });
 
       setShowModal(false);
@@ -169,6 +218,10 @@ const TourDetails: React.FC = () => {
     }
   };
 
+  if (!tourData) {
+    return <p>Loading...</p>;
+  }
+
   const {
     title,
     country,
@@ -176,14 +229,128 @@ const TourDetails: React.FC = () => {
     image,
     description,
     activities,
-    // bestTime,
+    itinerary,
+    highlights,
     tips,
-    itinerary, // Added Itinerary
-    highlights, // Added Highlights
-    price,
-    // costBreakdown,
     gallery,
+    price,
   } = tourData;
+
+  // // Tour data type
+  // interface TourFormData {
+  //   id: number;
+  //   fullName: string;
+  //   email: string;
+  //   phone: string;
+  //   travelGuide: string;
+  //   passengers: string;
+  //   duration: string;
+  //   date: string;
+  //   specialRequests?: string;
+  //   tourTitle: string;
+  //   tourCountry: string;
+  //   tourLocation: string;
+  //   tourPrice: number;
+  // }
+
+  // const TourDetails: React.FC = () => {
+  //   const [showModal, setShowModal] = useState(false);
+  //   const axiosPublic = useAxiosPublic();
+  //   // const { id } = useParams<{ id: string }>();
+
+  // const [formData, setFormData] = useState<TourFormData>({
+  //   id: tourData.id,
+  //   fullName: "",
+  //   email: user?.email,
+  //   phone: "",
+  //   travelGuide: "",
+  //   passengers: "",
+  //   duration: tourData?.duration,
+  //   date: "",
+  //   specialRequests: "",
+  //   tourTitle: tourData.title,
+  //   tourCountry: tourData.country,
+  //   tourLocation: tourData.location,
+  //   tourPrice: tourData.price,
+  // });
+
+  //   const handleChange = (
+  //     e: React.ChangeEvent<
+  //       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+  //     >
+  //   ) => {
+  //     const { name, value } = e.target;
+  //     setFormData((prevData) => ({
+  //       ...prevData,
+  //       [name]: value,
+  //     }));
+  //   };
+
+  //   const handleSubmit = async (e: React.FormEvent) => {
+  //     e.preventDefault();
+
+  //     if (
+  //       !formData.fullName ||
+  //       !formData.email ||
+  //       !formData.phone ||
+  //       !formData.date ||
+  //       !formData.passengers
+  //     ) {
+  //       toast.error("Please fill out all required fields!");
+  //       return;
+  //     }
+
+  //     const bookingInfo = {
+  //       ...formData,
+  //       bookingDate: new Date(),
+  //       status: "pending",
+  //     };
+
+  //     try {
+  //       // Submit booking data using axiosPublic
+  //       const response = await axiosPublic.post("/add-booking", bookingInfo);
+  //       console.log("Booking Response:", response.data);
+
+  //       toast.success("Booking submitted successfully!");
+
+  //       setFormData({
+  //         id: tourData.id,
+  //         fullName: "",
+  //         email: user?.email,
+  //         phone: "",
+  //         travelGuide: "",
+  //         passengers: "",
+  //         duration: tourData?.duration,
+  //         date: "",
+  //         specialRequests: "",
+  //         tourTitle: tourData.title,
+  //         tourCountry: tourData.country,
+  //         tourLocation: tourData.location,
+  //         tourPrice: tourData.price,
+  //       });
+
+  //       setShowModal(false);
+  //     } catch (error) {
+  //       console.error("Error submitting booking:", error);
+  //       toast.error("Something went wrong. Please try again!");
+  //     }
+  //   };
+
+  //   const {
+  //     title,
+  //     country,
+  //     location,
+  //     image,
+  //     description,
+  //     activities,
+  //     // bestTime,
+  //     tips,
+  //     itinerary, // Added Itinerary
+  //     highlights, // Added Highlights
+  //     price,
+  //     // costBreakdown,
+  //     gallery,
+  //   } = tourData;
 
   return (
     <div className="min-h-screen">
@@ -227,7 +394,7 @@ const TourDetails: React.FC = () => {
                 Itinerary
               </h3>
               <ul className="list-disc pl-5 text-gray-700 font-barlow">
-                {itinerary.map((day, index) => (
+                {itinerary?.map((day, index) => (
                   <li key={index}>{day}</li>
                 ))}
               </ul>
@@ -240,7 +407,7 @@ const TourDetails: React.FC = () => {
                 Highlights
               </h3>
               <ul className="list-disc pl-5 text-gray-700 font-barlow">
-                {highlights.map((highlight, index) => (
+                {highlights?.map((highlight, index) => (
                   <li key={index}>{highlight}</li>
                 ))}
               </ul>
@@ -253,7 +420,7 @@ const TourDetails: React.FC = () => {
                 Activities
               </h3>
               <ul className="list-disc pl-5 text-gray-700 font-barlow">
-                {activities.map((activity, index) => (
+                {activities?.map((activity, index) => (
                   <li key={index}>{activity}</li>
                 ))}
               </ul>
@@ -275,7 +442,7 @@ const TourDetails: React.FC = () => {
                 Travel Tips
               </h3>
               <ul className="list-disc pl-5 text-gray-700 font-barlow">
-                {tips.map((tip, index) => (
+                {tips?.map((tip, index) => (
                   <li key={index}>{tip}</li>
                 ))}
               </ul>
