@@ -3,12 +3,14 @@ import MainLayout from "../layout/MainLayout";
 import Home from "../pages/Home";
 import Contact from "../pages/Contact/Contact";
 import BlogLayout from "../pages/Blog/BlogLayout";
+import TourDetails from "../components/TourDetails";
 import Login from "../pages/Login/Login";
 import Register from "./../pages/Register/Register";
 import About from "../pages/About";
 import ManageUsers from "../pages/Admin/ManageUsers";
 import AdminDashboardLayout from "../layout/AdminDashboardLayout";
 import Statistics from "../Admin Dashboard/Statistics";
+import AddPackage from "../Admin Dashboard/AddPackage/AddPackage";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +41,10 @@ const router = createBrowserRouter([
         path: "/about",
         element: <About />,
       },
+      {
+        path: "/tour-details",
+        element: <TourDetails />,
+      },
     ],
   },
 
@@ -65,7 +71,7 @@ const router = createBrowserRouter([
       },
       {
         path: "add-package",
-        element: <ManageUsers />,
+        element: <AddPackage />,
       },
     ],
   },
