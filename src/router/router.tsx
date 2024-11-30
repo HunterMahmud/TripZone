@@ -3,9 +3,14 @@ import MainLayout from "../layout/MainLayout";
 import Home from "../pages/Home";
 import Contact from "../pages/Contact/Contact";
 import BlogLayout from "../pages/Blog/BlogLayout";
-import ManageUsers from "../Pages/Admin/ManageUsers";
+import TourDetails from "../components/TourDetails";
+import Login from "../pages/Login/Login";
+import Register from "./../pages/Register/Register";
+import About from "../pages/About";
+import ManageUsers from "../pages/Admin/ManageUsers";
 import AdminDashboardLayout from "../layout/AdminDashboardLayout";
 import Statistics from "../Admin Dashboard/Statistics";
+import AddPackage from "../Admin Dashboard/AddPackage/AddPackage";
 
 const router = createBrowserRouter([
   {
@@ -17,12 +22,28 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
+        path: "/blog",
+        element: <BlogLayout />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
+      },
+      {
         path: "/contact",
         element: <Contact></Contact>,
       },
       {
-        path: "/blog",
-        element: <BlogLayout />,
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/tour-details",
+        element: <TourDetails />,
       },
     ],
   },
@@ -34,43 +55,26 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: (
-          <Statistics />
-
-        ),
+        element: <Statistics />,
       },
       {
         path: "manage-users",
-        element: (
-          <ManageUsers />
-          
-        ),
+        element: <ManageUsers />,
       },
       {
         path: "manage-packages",
-        element: (
-          <ManageUsers />
-          
-        ),
+        element: <ManageUsers />,
       },
       {
         path: "manage-booking",
-        element: (
-          <ManageUsers />
-          
-        ),
+        element: <ManageUsers />,
       },
       {
         path: "add-package",
-        element: (
-          <ManageUsers />
-          
-        ),
+        element: <AddPackage />,
       },
-      
     ],
   },
-  
 ]);
 
 export default router;
