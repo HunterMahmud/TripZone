@@ -11,6 +11,7 @@ import {
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import useAxiosPublic from "../hooks/useAxiosPublic";
+// import { useParams } from "react-router-dom";
 
 const tourData = {
   id: 1,
@@ -85,6 +86,7 @@ interface TourFormData {
 const TourDetails: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
   const axiosPublic = useAxiosPublic();
+  // const { id } = useParams<{ id: string }>();
 
   // Pre-fill extracted days dynamically
   // const defaultDuration = parseInt(tourData.duration.split(" ")[0]) || 0;

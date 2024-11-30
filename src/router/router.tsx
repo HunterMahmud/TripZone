@@ -78,3 +78,28 @@ const router = createBrowserRouter([
 ]);
 
 export default router;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// {
+//   path: "/tour-details/:id",
+//   element: <TourDetails />,
+// }
