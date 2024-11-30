@@ -9,17 +9,17 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { BsPersonWorkspace } from "react-icons/bs";
 import MenuItem from "./MenuItem";
 import useAuth from "../hooks/useAuth";
+import useRole from "../hooks/useRole";
 // import { CgProfile } from "react-icons/cg";
-
-// import useAuth from "../../Hook/useAuth";
-// import useRole from "../../Hook/useRole";
 
 const Sidebar: FC = () => {
   const { logOut } = useAuth();
   const navigate = useNavigate();
-  const [isActive, setActive] = useState<boolean>(false); // Explicitly typed as boolean
-  // const [role] = useRole(); // Assuming `useRole` returns an array
-  // const [toggle, setToggle] = useState<boolean>(true); // Explicitly typed as boolean
+  const [isActive, setActive] = useState<boolean>(false);
+  const [role] = useRole();
+  // const [toggle, setToggle] = useState<boolean>(true);
+
+  // console.log(role?.role);
 
   // Sidebar Responsive Handler
   const handleToggle = (): void => {
@@ -36,12 +36,9 @@ const Sidebar: FC = () => {
     }
   };
 
-  const role = {
-    role: "admin",
-  }
-
-
-  
+  // const role = {
+  //   role: "admin",
+  // }
 
   return (
     <>
@@ -63,8 +60,9 @@ const Sidebar: FC = () => {
 
         <button
           onClick={handleToggle}
-          className={`p-4 focus:outline-none ${isActive ? "text-secondary" : "text-primary"
-            }`}
+          className={`p-4 focus:outline-none ${
+            isActive ? "text-secondary" : "text-primary"
+          }`}
         >
           {isActive ? (
             <AiOutlineClose className="text-2xl" /> // Close button when sidebar is open
@@ -116,12 +114,6 @@ const Sidebar: FC = () => {
                 handleToggle={handleToggle}
               />
               <MenuItem
-                label="Manage Booking"
-                address="manage-booking"
-                icon={MdPayments}
-                handleToggle={handleToggle}
-              />
-              <MenuItem
                 label="Manage Packages"
                 address="manage-packages"
                 icon={MdPayments}
@@ -131,6 +123,46 @@ const Sidebar: FC = () => {
                 label="Add Package"
                 address="add-package"
                 icon={BsPersonWorkspace}
+                handleToggle={handleToggle}
+              />
+            </nav>
+          )}
+
+          {role?.role === "user" && (
+            <nav className="">
+              <MenuItem
+                label="My Profile"
+                address="/dashboard"
+                icon={GoHomeFill}
+                handleToggle={handleToggle} // Pass handleToggle to MenuItem
+              />
+              <MenuItem
+                label="Wishlist"
+                address="Wishlist"
+                icon={FaUsers}
+                handleToggle={handleToggle}
+              />
+              <MenuItem
+                label="Booking List"
+                address="booking-list"
+                icon={MdPayments}
+                handleToggle={handleToggle}
+              />
+            </nav>
+          )}
+
+          {role?.role === "tour_guide" && (
+            <nav className="">
+              <MenuItem
+                label="My Profile"
+                address="/dashboard"
+                icon={GoHomeFill}
+                handleToggle={handleToggle} // Pass handleToggle to MenuItem
+              />
+              <MenuItem
+                label="Manage Booking"
+                address="manage-booking"
+                icon={MdPayments}
                 handleToggle={handleToggle}
               />
             </nav>

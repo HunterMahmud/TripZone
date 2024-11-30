@@ -1,16 +1,19 @@
 import {  useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { GrLogout } from "react-icons/gr";
 import { MdDashboard } from "react-icons/md";
+import useAuth from "../hooks/useAuth";
+// import useRole from "../hooks/useRole";
 
 const Navbar: React.FC = () => {
     // const [isOpen, setIsOpen] = useState<boolean>(false);
     // const [isOpenMenu, setIsOpenMenu] = useState<boolean>(false);
 
 
-    // const { user } = useAuth();
-    // const navigate = useNavigate();
-    const user = 'admin'
+    const { user, logOut } = useAuth();
+    const navigate = useNavigate();
+    // const [role] = useRole(); 
+    // const user = 'admin'
 
     const navLinks = <>
         <li> <NavLink className={({ isActive }) =>
@@ -52,16 +55,17 @@ const Navbar: React.FC = () => {
     </>
 
 
-    // const handleLogoutBtn = () => {
-    //     logOut()
-    //     navigate('/')
-    //         .then(() => {
-    //             console.log("Sing Out Successfully");
-    //         })
-    //         .catch((error) => {
-    //             console.log(error);
-    //         });
-    // }
+const handleLogoutBtn = (): void => {
+    logOut()
+        .then(() => {
+            navigate('/');
+            console.log("Sign Out Successfully");
+        })
+        .catch((error: unknown) => {
+            console.error(error);
+        });
+};
+
 
     const [isOpenMenu, setIsOpenMenu] = useState(false)
 
@@ -120,7 +124,7 @@ const Navbar: React.FC = () => {
                                         <span className='mx-3 font-medium'>Dashboard</span></Link>
                                 </li>
                                 <div
-                                    // onClick={handleLogoutBtn}
+                                    onClick={handleLogoutBtn}
                                     className='flex w-full items-center px-4 py-2 text-gray-600 hover:bg-gray-300   hover:text-gray-700 transition-colors duration-300 transform'
                                 >
                                     <GrLogout className='w-5 h-5' />
