@@ -1,4 +1,4 @@
-// import { Helmet } from 'react-helmet-async';
+import { Helmet } from 'react-helmet-async';
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { useEffect, useState, FormEvent } from 'react';
 import axios from 'axios';
@@ -66,9 +66,9 @@ const ManageUsers = () => {
   return (
     <>
       <div className='container mx-auto px-4 sm:px-8'>
-        {/* <Helmet>
+        <Helmet>
           <title>Manage Users</title>
-        </Helmet> */}
+        </Helmet>
 
         <div className='flex items-center pt-8 pb-3 gap-x-3'>
           <h2 className='text-lg font-medium text-gray-800'>Manage Users</h2>

@@ -1,10 +1,10 @@
+import Banner from '../components/Home/Banner';
 import Packages from '../components/Packages';
-import Banner from './../components/Home/Banner';
 const Home: React.FC = () => {
   return (
     <div>
       <Banner />
-      <Packages/>
+      <Packages/> 
     </div>
   );
 };
