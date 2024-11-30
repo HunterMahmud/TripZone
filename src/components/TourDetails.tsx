@@ -38,7 +38,7 @@ const tourData = {
     "Explore vibrant Himalayan villages",
     "Experience traditional Nepali cuisine",
   ],
-  bestTime: "March to May, September to November",
+  // bestTime: "March to May, September to November",
   tips: ["Pack warm clothes", "Carry trekking gear", "Stay hydrated"],
   gallery: [
     "https://i.ibb.co/b5tJ24P/pexels-matthew-montrone-230847-1324803.jpg",

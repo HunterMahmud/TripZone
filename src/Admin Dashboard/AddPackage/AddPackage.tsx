@@ -57,15 +57,15 @@ const AddPackage: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const tourData = {
+    const packageInfo = {
       ...formData,
       postedDate: new Date(),
     };
-    console.log("Tour Data Submitted:", tourData);
+    console.log("Tour Data Submitted:", packageInfo);
 
     try {
       // Send the form data via POST request using axiosPublic
-      const response = await axiosPublic.post("/add-package", tourData);
+      const response = await axiosPublic.post("/add-package", packageInfo);
       // /get-packages/:id
       // Handle the response if needed (you can inspect response data if necessary)
       console.log("Tour added response:", response);
