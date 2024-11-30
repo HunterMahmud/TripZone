@@ -8,9 +8,9 @@ import {
   FaCreditCard,
   FaMapMarkerAlt,
 } from "react-icons/fa";
-import { MdOutlineTipsAndUpdates } from "react-icons/md";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import useAxiosPublic from "../hooks/useAxiosPublic";
 
 const tourData = {
   id: 1,
@@ -84,6 +84,7 @@ interface TourFormData {
 
 const TourDetails: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
+  const axiosPublic = useAxiosPublic();
 
   // Pre-fill extracted days dynamically
   // const defaultDuration = parseInt(tourData.duration.split(" ")[0]) || 0;
@@ -116,7 +117,7 @@ const TourDetails: React.FC = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (
@@ -130,13 +131,17 @@ const TourDetails: React.FC = () => {
       return;
     }
 
-    const packageData = {
+    const bookingInfo = {
       ...formData,
       bookingDate: new Date(),
+      status: "pending",
     };
 
     try {
-      console.log("Booking Data:", packageData);
+      // Submit booking data using axiosPublic
+      const response = await axiosPublic.post("/add-booking", bookingInfo);
+      console.log("Booking Response:", response.data);
+
       toast.success("Booking submitted successfully!");
 
       setFormData({
@@ -157,7 +162,7 @@ const TourDetails: React.FC = () => {
 
       setShowModal(false);
     } catch (error) {
-      console.log(error);
+      console.error("Error submitting booking:", error);
       toast.error("Something went wrong. Please try again!");
     }
   };
@@ -169,7 +174,7 @@ const TourDetails: React.FC = () => {
     image,
     description,
     activities,
-    bestTime,
+    // bestTime,
     tips,
     itinerary, // Added Itinerary
     highlights, // Added Highlights
@@ -253,13 +258,13 @@ const TourDetails: React.FC = () => {
             </div>
 
             {/* Best Time */}
-            <div className="mt-4">
+            {/* <div className="mt-4">
               <h3 className="text-xl font-semibold text-[#0f2454] font-popins flex items-center">
                 <MdOutlineTipsAndUpdates className="mr-2 text-[#2095ae]" />
                 Best Time to Visit
               </h3>
               <p className="text-gray-700 font-barlow">{bestTime}</p>
-            </div>
+            </div> */}
 
             {/* Tips */}
             <div className="mt-4">
@@ -299,7 +304,7 @@ const TourDetails: React.FC = () => {
             Gallery
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4">
-            {gallery.map((imgSrc, index) => (
+            {gallery?.map((imgSrc, index) => (
               <img
                 key={index}
                 src={imgSrc}
@@ -363,6 +368,7 @@ const TourDetails: React.FC = () => {
                     required
                     value={formData.date}
                     onChange={handleChange}
+                    min={new Date().toISOString().split("T")[0]} // Restrict to future dates
                     className="border border-gray-300 rounded p-3"
                   />
                 </div>
