@@ -10,7 +10,11 @@ import useAxiosPublic from "../../hooks/useAxiosPublic";
 const Login: React.FC = () => {
   const axiosPublic = useAxiosPublic();
   const [showPass, setShowPass] = useState(false);
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<{ email: string; password: string }>();
   const { emailPasswordLogIn, googleLogin } = useAuth()!;
   const location = useLocation();
   const navigate = useNavigate();
@@ -51,10 +55,14 @@ const Login: React.FC = () => {
         data-aos="zoom-in"
         className="w-full mb-9 max-w-md mx-auto mt-12 p-8 space-y-3 rounded-xl border border-gray-200 bg-white text-black shadow-lg"
       >
-        <h1 className="text-2xl font-bold text-center text-black font-bugrasimo">Login</h1>
+        <h1 className="text-2xl font-bold text-center text-black font-bugrasimo">
+          Login
+        </h1>
         <form onSubmit={handleSubmit(onSubmitLogin)} className="space-y-6">
           <div className="space-y-1 text-sm">
-            <label htmlFor="email" className="block text-gray-900">Email</label>
+            <label htmlFor="email" className="block text-gray-900">
+              Email
+            </label>
             <input
               {...register("email", {
                 required: { value: true, message: "This field is required." },
@@ -66,12 +74,16 @@ const Login: React.FC = () => {
             />
             {errors.email?.message && (
               <span className="text-red-500">
-                {typeof errors.email.message === "string" ? errors.email.message : "Invalid input"}
+                {typeof errors.email.message === "string"
+                  ? errors.email.message
+                  : "Invalid input"}
               </span>
             )}
           </div>
           <div className="space-y-1 text-sm">
-            <label htmlFor="password" className="block text-gray-900">Password</label>
+            <label htmlFor="password" className="block text-gray-900">
+              Password
+            </label>
             <div className="relative">
               <input
                 {...register("password", {
@@ -92,11 +104,16 @@ const Login: React.FC = () => {
             </div>
             {errors.password?.message && (
               <span className="text-red-500">
-                {typeof errors.password.message === "string" ? errors.password.message : "Invalid input"}
+                {typeof errors.password.message === "string"
+                  ? errors.password.message
+                  : "Invalid input"}
               </span>
             )}
           </div>
-          <button type="submit" className="w-full py-3 px-4 text-sm font-semibold rounded-lg bg-blue-600 text-white hover:bg-blue-700">
+          <button
+            type="submit"
+            className="w-full py-3 px-4 text-sm font-semibold rounded-lg bg-blue-600 text-white hover:bg-blue-700"
+          >
             Login
           </button>
         </form>
@@ -156,7 +173,6 @@ const Login: React.FC = () => {
 };
 
 export default Login;
-
 
 /*
 
