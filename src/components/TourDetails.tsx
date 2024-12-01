@@ -126,7 +126,7 @@ const TourDetails: React.FC = () => {
       try {
         const response = await axiosPublic.get(`/get-packages/${id}`);
         console.log(response.data.package);
-        setTourData(response.data?.package);
+        setTourData(response?.data?.package);
 
         setFormData({
           id: response.data.id,
@@ -135,13 +135,13 @@ const TourDetails: React.FC = () => {
           phone: "",
           travelGuide: "",
           passengers: "",
-          duration: response.data.duration,
+          duration: response.data.package.duration,
           date: "",
           specialRequests: "",
-          tourTitle: response.data.title,
-          tourCountry: response.data.country,
-          tourLocation: response.data.location,
-          tourPrice: response.data.price,
+          tourTitle: response.data.package.title,
+          tourCountry: response.data.package.country,
+          tourLocation: response.data.package.location,
+          tourPrice: response.data.package.price,
         });
       } catch (error) {
         console.error("Error fetching tour data:", error);
@@ -391,7 +391,7 @@ const TourDetails: React.FC = () => {
             <div className="mt-4">
               <h3 className="text-xl font-semibold text-[#0f2454] font-popins flex items-center">
                 <FaCalendarAlt className="mr-2 text-[#2095ae]" />
-                Itinerary
+                Itinerary ({formData.duration})
               </h3>
               <ul className="list-disc pl-5 text-gray-700 font-barlow">
                 {itinerary?.map((day, index) => (
@@ -551,7 +551,7 @@ const TourDetails: React.FC = () => {
                     placeholder="Number of Passengers"
                     className="border border-gray-300 rounded p-3"
                   />
-                  <input
+                  {/* <input
                     type="text"
                     name="duration"
                     disabled
@@ -559,7 +559,7 @@ const TourDetails: React.FC = () => {
                     onChange={handleChange}
                     placeholder="Duration (Days)"
                     className="border border-gray-300 rounded p-3"
-                  />
+                  /> */}
                 </div>
                 <div className="mt-4">
                   <label
@@ -591,22 +591,24 @@ const TourDetails: React.FC = () => {
                   value={formData.specialRequests}
                   onChange={handleChange}
                   placeholder="Special Requests"
-                  rows={4}
+                  rows={3}
                   className="w-full mt-4 border border-gray-300 rounded p-3"
                 ></textarea>
-                <button
-                  type="submit"
-                  className="w-full mt-4 bg-[#0f2454] text-white py-3 rounded"
-                >
-                  Submit
-                </button>
+                <div className="flex flex-row-reverse justify-between mt-4">
+                  <button
+                    type="submit"
+                    className="w-[48%] bg-[#0f2454] text-white py-3 rounded"
+                  >
+                    Submit
+                  </button>
+                  <button
+                    onClick={() => setShowModal(false)}
+                    className="w-[48%] bg-red-600 text-white py-3 rounded"
+                  >
+                    Close
+                  </button>
+                </div>
               </form>
-              <button
-                onClick={() => setShowModal(false)}
-                className="w-full mt-4 bg-red-600 text-white py-2 rounded"
-              >
-                Close
-              </button>
             </div>
           </div>
         )}
