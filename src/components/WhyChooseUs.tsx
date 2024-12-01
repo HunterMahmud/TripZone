@@ -35,10 +35,10 @@ const WhyChooseUs: React.FC = () => {
   return (
     <section className="py-16 bg-gray-100" id="why-choose-us">
       <div className="container mx-auto px-6 text-center">
-        <h2 className="text-3xl font-bold text-gray-800 mb-6">
+        <h2 className="md:text-4xl text-3xl font-bold font-popins text-gray-800 mb-6">
           Why Choose Us?
         </h2>
-        <p className="text-gray-600 mb-12">
+        <p className="text-secondary text-xl font-barlow font-medium mb-12">
           We provide exceptional services to ensure your travel experience is
           memorable and seamless.
         </p>

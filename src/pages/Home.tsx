@@ -1,3 +1,4 @@
+import Gallery from '../components/Gallary';
 import Banner from '../components/Home/Banner';
 import Packages from '../components/Packages';
 import WhyChooseUs from '../components/WhyChooseUs';
@@ -7,8 +8,8 @@ const Home: React.FC = () => {
     <div>
       <Banner />
       <Packages/>
+      <Gallery/>
       <WhyChooseUs/>
-      <Packages/> 
     </div>
   );
 };
