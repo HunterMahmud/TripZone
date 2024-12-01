@@ -11,6 +11,7 @@ import ManageUsers from "../pages/Admin/ManageUsers";
 import AdminDashboardLayout from "../layout/AdminDashboardLayout";
 import Statistics from "../Admin Dashboard/Statistics";
 import AddPackage from "../Admin Dashboard/AddPackage/AddPackage";
+import ToursLayout from "../pages/Tours/ToursLayout";
 
 const router = createBrowserRouter([
   {
@@ -38,8 +39,16 @@ const router = createBrowserRouter([
         element: <Contact></Contact>,
       },
       {
+        path: "/blogs",
+        element: <BlogLayout />,
+      },
+      {
         path: "/about",
         element: <About />,
+      },
+      {
+        path: "/tours",
+        element: <ToursLayout />,
       },
       {
         path: "/tour-details/:id",
@@ -78,4 +87,3 @@ const router = createBrowserRouter([
 ]);
 
 export default router;
-
