@@ -214,7 +214,7 @@ const UserDataRow: React.FC<UserDataRowProps> = ({ user,  }) => {
             {user.status}
           </p>
         ) : (
-          <p className="text-red-500 whitespace-no-wrap">Unavailable</p>
+          <p className="text-green-500 whitespace-no-wrap">Verified</p>
         )}
       </td>
       <td className="pr-5 pl-10 py-5 border-b border-gray-200 bg-white text-sm">

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import TitleHeader from '../../shared/common/TitleHeader';
+import Navbar from '../Navbar';
 
 interface HeroProps {
     backgroundImage: string; // URL for the background image
@@ -21,6 +22,11 @@ const Hero: React.FC<HeroProps> = ({
             className={`relative bg-cover bg-top py-44 bg-fixed`}
             style={{ backgroundImage: `url(${backgroundImage})` }}
         >
+
+<div className='absolute z-50 top-0 left-0 right-0 text-white'>
+                <Navbar/>
+                </div>
+            
             {/* Overlay */}
             <div
                 className={`absolute inset-0 ${overlayColor}`}

@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+// import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { useEffect, useState, FormEvent } from "react";
 import axios from "axios";
 import UserDataRow from "../../Admin Dashboard/UserDataRow";
@@ -16,60 +16,63 @@ interface User {
 const ManageUsers = () => {
   /****Use Search and filter****/
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [itemsPerPage, setItemsPerPage] = useState<number>(10);
-  const [currentPage, setCurrentPage] = useState<number>(1);
-  const [count, setCount] = useState<number>(0);
+  // const [itemsPerPage, setItemsPerPage] = useState<number>(10);
+  // const [currentPage, setCurrentPage] = useState<number>(1);
+  // const [count, setCount] = useState<number>(0);
   const [filter, setFilter] = useState<string>("");
-  const [search, setSearch] = useState<string>("");
+  // const [search, setSearch] = useState<string>("");
   const [searchText, setSearchText] = useState<string>("");
   const [users, setUsers] = useState<User[]>([]);
 
-  // Fetch Users data
-  const fetchUsers = async () => {
-    const { data } = await axios.get<User[]>(
-      `${
-        import.meta.env.VITE_BASE_URL
-      }/users`
-    );
-    console.log(data); // Check if data is an array
-    setUsers(data);
+   // Fetch Users data
+   const fetchUsers = async (): Promise<void> => {
+    try {
+      const { data } = await axios.get<User[]>(
+        `${import.meta.env.VITE_BASE_URL}/users`
+      );
+      console.log(data); // Check if data is an array
+      setUsers(data);
+    } catch (error) {
+      console.error('Error fetching users:', error);
+    }
   };
-
-  console.log(users);
 
   useEffect(() => {
     fetchUsers();
-  }, [currentPage, filter, itemsPerPage, search]);
+  }, []);
 
-  useEffect(() => {
-    const getCount = async () => {
-      const { data } = await axios.get<{ count: number }>(
-        `${
-          import.meta.env.VITE_BASE_URL
-        }/users-count?filter=${filter}&search=${search}`
-      );
-      setCount(data.count);
-    };
-    getCount();
-  }, [filter, search]);
+  console.log(users);
 
-  const numberOfPages = Math.ceil(count / itemsPerPage);
-  const pages = [...Array(numberOfPages).keys()].map((element) => element + 1);
+
+  // useEffect(() => {
+  //   const getCount = async () => {
+  //     const { data } = await axios.get<{ count: number }>(
+  //       `${
+  //         import.meta.env.VITE_BASE_URL
+  //       }/users-count?filter=${filter}&search=${search}`
+  //     );
+  //     setCount(data.count);
+  //   };
+  //   getCount();
+  // }, [filter, search]);
+
+  // const numberOfPages = Math.ceil(count / itemsPerPage);
+  // const pages = [...Array(numberOfPages).keys()].map((element) => element + 1);
 
   // Handle pagination button
-  const handlePaginationButton = (value: number) => {
-    setCurrentPage(value);
-  };
+  // const handlePaginationButton = (value: number) => {
+  //   setCurrentPage(value);
+  // };
 
   const handleReset = () => {
     setFilter("");
-    setSearch("");
+    // setSearch("");
     setSearchText("");
   };
 
   const handleSearch = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSearch(searchText);
+    // setSearch(searchText);
   };
 
   return (
@@ -88,7 +91,7 @@ const ManageUsers = () => {
             <select
               onChange={(e) => {
                 setFilter(e.target.value);
-                setCurrentPage(1);
+                // setCurrentPage(1);
               }}
               value={filter}
               name="role"
@@ -179,9 +182,9 @@ const ManageUsers = () => {
         </div>
 
         {/* Pagination Section */}
-        <div className="flex justify-center mt-12">
+        {/* <div className="flex justify-center mt-12"> */}
           {/* Previous Button */}
-          <button
+          {/* <button
             disabled={currentPage === 1}
             onClick={() => handlePaginationButton(currentPage - 1)}
             className="px-4 py-2 mx-1 text-white disabled:text-gray-500 capitalize bg-secondary rounded-full disabled:cursor-not-allowed disabled:hover:bg-gray-200 disabled:bg-gray-200 disabled:hover:text-gray-500 hover:bg-primary hover:text-white"
@@ -189,9 +192,9 @@ const ManageUsers = () => {
             <div className="flex items-center -mx-1">
               <IoIosArrowBack />
             </div>
-          </button>
+          </button> */}
           {/* Numbers */}
-          {pages.map((btnNum) => (
+          {/* {pages.map((btnNum) => (
             <button
               onClick={() => handlePaginationButton(btnNum)}
               key={btnNum}
@@ -201,9 +204,9 @@ const ManageUsers = () => {
             >
               {btnNum}
             </button>
-          ))}
+          ))} */}
           {/* Next Button */}
-          <button
+          {/* <button
             disabled={currentPage === numberOfPages}
             onClick={() => handlePaginationButton(currentPage + 1)}
             className="px-4 py-2 mx-1 text-white transition-colors duration-300 transform bg-secondary rounded-full hover:bg-primary disabled:hover:bg-gray-200 disabled:bg-gray-200 disabled:hover:text-gray-500 hover:text-white disabled:cursor-not-allowed disabled:text-gray-500"
@@ -211,8 +214,8 @@ const ManageUsers = () => {
             <div className="flex items-center -mx-1">
               <IoIosArrowForward />
             </div>
-          </button>
-        </div>
+          </button> */}
+        {/* </div> */}
       </div>
     </>
   );

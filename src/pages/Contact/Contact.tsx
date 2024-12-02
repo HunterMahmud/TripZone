@@ -19,6 +19,7 @@ import "swiper/css/pagination";
 
 // Import required modules
 import { Pagination } from "swiper/modules";
+import Navbar from "../../shared/Navbar";
 
 const Contact: React.FC = () => {
   return (
@@ -31,8 +32,11 @@ const Contact: React.FC = () => {
             "url('https://i.ibb.co/2qLhF8p/pexels-souvenirpixels-1519088.jpg')",
         }}
       >
+        <div className="absolute top-0 left-0 right-0 text-white">
+          <Navbar />
+        </div>
         {/* Overlay */}
-        <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+        {/* <div className="absolute inset-0 bg-black bg-opacity-30"></div> */}
 
         {/* Header Content */}
         <div className="container mx-auto relative px-6 lg:px-20 text-left">
@@ -130,9 +134,7 @@ const Contact: React.FC = () => {
                   <span className="w-8 h-8 flex items-center justify-center bg-blue-600 text-white rounded-full">
                     <FaPhone />
                   </span>
-                  <span className="ml-4 text-gray-800 ">
-                    +123 456 7890
-                  </span>
+                  <span className="ml-4 text-gray-800 ">+123 456 7890</span>
                 </li>
                 <li className="flex items-center">
                   <span className="w-8 h-8 flex items-center justify-center bg-blue-600 text-white rounded-full">

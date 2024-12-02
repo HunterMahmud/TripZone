@@ -8,6 +8,7 @@ import "swiper/css";
 import "swiper/css/bundle";
 import 'swiper/css/effect-fade';
 import { Navigation, Autoplay, Pagination } from 'swiper/modules';
+import Navbar from '../shared/Navbar';
 
 const About = () => {
 
@@ -40,12 +41,17 @@ const About = () => {
       
     return (
         <div>
+
+            
             <div
             className="h-[400px] relative bg-no-repeat bg-cover bg-center w-full"
             style={{
                 backgroundImage: "url(https://i.ibb.co/J5Jf4VG/title-bg.jpg)", 
             }}
             >
+                <div className='absolute top-0 left-0 right-0 text-white'>
+                <Navbar/>
+                </div>
              <div className="flex flex-col h-full  justify-center items-center">
                 <div className="text-white text-center bg-black bg-opacity-30 p-8 lg:w-2/6 ">
                 <h3 className="lg:text-2xl text-xl font-semibold ">Home / About us</h3>
