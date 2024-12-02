@@ -25,11 +25,11 @@ const Navbar: React.FC = () => {
 
         {/* {user && <> */}
 
-        <li> <NavLink className={({ isActive }) =>
+        {/* <li> <NavLink className={({ isActive }) =>
             isActive ? 'p-0 text-secondary pb-1 rounded-none text-[16px] border-b-2 font-medium mt-2 border-secondary'
                 :
                 'font-medium p-0 transition-all duration-200 ease-in-out hover:text-secondary hover:pb-1 hover:rounded-none text-[16px] hover:border-b-2 mt-2 border-secondary'
-        } to={'/community'}> Community </NavLink> </li>
+        } to={'/community'}> Community </NavLink> </li> */}
 
 
         <li> <NavLink className={({ isActive }) =>
