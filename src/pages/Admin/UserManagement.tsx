@@ -29,7 +29,7 @@ const ManageUsers = () => {
     const { data } = await axios.get<User[]>(
       `${
         import.meta.env.VITE_BASE_URL
-      }/users`
+      }/users?page=${currentPage}&size=${itemsPerPage}&filter=${filter}&search=${search}`
     );
     console.log(data); // Check if data is an array
     setUsers(data);
@@ -54,7 +54,7 @@ const ManageUsers = () => {
   }, [filter, search]);
 
   const numberOfPages = Math.ceil(count / itemsPerPage);
-  const pages = [...Array(numberOfPages).keys()].map((element) => element + 1);
+  const pages = [...Array(5).keys()].map((element) => element + 1);
 
   // Handle pagination button
   const handlePaginationButton = (value: number) => {
@@ -148,16 +148,16 @@ const ManageUsers = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {users?.map((user) => (
+                  {/* {users?.map((user) => (
                     <UserDataRow
                       key={user._id}
                       user={user}
                       // indx={indx}
                       refetch={fetchUsers}
                     />
-                  ))}
+                  ))} */}
 
-                  {/* {Array.isArray(users) && users.length > 0 ? (
+                  {Array.isArray(users) && users.length > 0 ? (
                     users.map((user) => (
                       <UserDataRow
                         key={user._id}
@@ -171,7 +171,7 @@ const ManageUsers = () => {
                         No users found.
                       </td>
                     </tr>
-                  )} */}
+                  )}
                 </tbody>
               </table>
             </div>
