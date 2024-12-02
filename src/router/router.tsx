@@ -12,6 +12,7 @@ import AdminDashboardLayout from "../layout/AdminDashboardLayout";
 import Statistics from "../Admin Dashboard/Statistics";
 import AddPackage from "../Admin Dashboard/AddPackage/AddPackage";
 import ToursLayout from "../pages/Tours/ToursLayout";
+import MyBookingLayout from "../pages/MyBooking/MyBookingLayout";
 
 const router = createBrowserRouter([
   {
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
         path: "/tour-details",
         element: <TourDetails />,
       },
+      {
+        path: "/my-booking",
+        element: <MyBookingLayout />
+      }
     ],
   },
 
@@ -81,7 +86,7 @@ const router = createBrowserRouter([
       {
         path: "add-package",
         element: <AddPackage />,
-      },
+      }
     ],
   },
 ]);
