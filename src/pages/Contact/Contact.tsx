@@ -22,7 +22,7 @@ import { Pagination } from "swiper/modules";
 
 const Contact: React.FC = () => {
   return (
-    <section className="bg-gray-100 dark:bg-gray-900 pb-16">
+    <section className="bg-gray-100  pb-16">
       {/* Header */}
       <div
         className="relative bg-cover bg-center bg-fixed h-[400px] flex items-center mb-24"
@@ -48,8 +48,8 @@ const Contact: React.FC = () => {
       <div className="container mx-auto px-6 lg:px-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
-          <div className="bg-white dark:bg-gray-800 shadow-md rounded-lg p-8">
-            <h3 className="text-2xl font-popins font-semibold text-gray-800 dark:text-white mb-6">
+          <div className="bg-white  shadow-md rounded-lg p-8">
+            <h3 className="text-2xl font-popins font-semibold text-gray-800  mb-6">
               Contact Form
             </h3>
             <form>
@@ -58,7 +58,7 @@ const Contact: React.FC = () => {
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-sm font-subtitle text-gray-600 dark:text-gray-300"
+                    className="block text-sm font-subtitle text-gray-600 "
                   >
                     Full Name
                   </label>
@@ -66,7 +66,7 @@ const Contact: React.FC = () => {
                     type="text"
                     id="name"
                     placeholder="Your Full Name"
-                    className="w-full mt-2 px-4 py-2 border rounded-lg text-gray-800 dark:text-gray-200 bg-gray-100 dark:bg-gray-700 focus:outline-none focus:ring focus:ring-secondary"
+                    className="w-full mt-2 px-4 py-2 border rounded-lg text-gray-800  bg-gray-100  focus:outline-none focus:ring focus:ring-secondary"
                     required
                   />
                 </div>
@@ -74,7 +74,7 @@ const Contact: React.FC = () => {
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-sm font-subtitle text-gray-600 dark:text-gray-300"
+                    className="block text-sm font-subtitle text-gray-600 "
                   >
                     Email Address
                   </label>
@@ -82,7 +82,7 @@ const Contact: React.FC = () => {
                     type="email"
                     id="email"
                     placeholder="Your Email Address"
-                    className="w-full mt-2 px-4 py-2 border rounded-lg text-gray-800 dark:text-gray-200 bg-gray-100 dark:bg-gray-700 focus:outline-none focus:ring focus:ring-secondary"
+                    className="w-full mt-2 px-4 py-2 border rounded-lg text-gray-800  bg-gray-100  focus:outline-none focus:ring focus:ring-secondary"
                     required
                   />
                 </div>
@@ -91,7 +91,7 @@ const Contact: React.FC = () => {
               <div className="mt-6">
                 <label
                   htmlFor="message"
-                  className="block text-sm font-subtitle text-gray-600 dark:text-gray-300"
+                  className="block text-sm font-subtitle text-gray-600 "
                 >
                   Message
                 </label>
@@ -99,7 +99,7 @@ const Contact: React.FC = () => {
                   id="message"
                   rows={5}
                   placeholder="Your Message"
-                  className="w-full mt-2 px-4 py-2 border rounded-lg text-gray-800 dark:text-gray-200 bg-gray-100 dark:bg-gray-700 focus:outline-none focus:ring focus:ring-secondary"
+                  className="w-full mt-2 px-4 py-2 border rounded-lg text-gray-800  bg-gray-100  focus:outline-none focus:ring focus:ring-secondary"
                   required
                 ></textarea>
               </div>
@@ -116,10 +116,10 @@ const Contact: React.FC = () => {
           {/* Contact Information */}
           <div>
             <div className="mb-8">
-              <h1 className="text-2xl font-popins font-semibold text-gray-800 dark:text-white mb-4">
+              <h1 className="text-2xl font-popins font-semibold text-gray-800  mb-4">
                 Travel Agency Inc.
               </h1>
-              <p className="text-gray-600 dark:text-gray-400">
+              <p className="text-gray-600 ">
                 Travel duru nisl quam nestibulum ac quam nec odio elementum
                 sceisue the aucan ligula. Orci varius natoque penatibus et
                 magnis dis parturient monte nascete ridiculus mus nellentesque
@@ -130,7 +130,7 @@ const Contact: React.FC = () => {
                   <span className="w-8 h-8 flex items-center justify-center bg-blue-600 text-white rounded-full">
                     <FaPhone />
                   </span>
-                  <span className="ml-4 text-gray-800 dark:text-gray-300">
+                  <span className="ml-4 text-gray-800 ">
                     +123 456 7890
                   </span>
                 </li>
@@ -138,7 +138,7 @@ const Contact: React.FC = () => {
                   <span className="w-8 h-8 flex items-center justify-center bg-blue-600 text-white rounded-full">
                     <FaEnvelope />
                   </span>
-                  <span className="ml-4 text-gray-800 dark:text-gray-300">
+                  <span className="ml-4 text-gray-800 ">
                     support@example.com
                   </span>
                 </li>
@@ -146,7 +146,7 @@ const Contact: React.FC = () => {
                   <span className="w-8 h-8 flex items-center justify-center bg-blue-600 text-white rounded-full">
                     <FaMapMarkerAlt />
                   </span>
-                  <span className="ml-4 text-gray-800 dark:text-gray-300">
+                  <span className="ml-4 text-gray-800 ">
                     123 Main Street, City, Country
                   </span>
                 </li>
@@ -154,7 +154,7 @@ const Contact: React.FC = () => {
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-4">
+              <h3 className="text-xl font-semibold text-gray-800  mb-4">
                 Follow Us
               </h3>
               <div className="flex space-x-4">
@@ -190,7 +190,7 @@ const Contact: React.FC = () => {
 
       {/* Google Map Section */}
       <div className="mt-12 container mx-auto px-6 lg:px-20">
-        <h3 className="text-2xl font-popins font-semibold text-gray-800 dark:text-white mb-4">
+        <h3 className="text-2xl font-popins font-semibold text-gray-800  mb-4">
           Find Us on the Map
         </h3>
         <div className="w-full h-[500px] overflow-hidden rounded-lg shadow-lg">
