@@ -49,10 +49,10 @@ const router = createBrowserRouter([
       },
       {
         path: "/tours",
-        element: <ToursLayout />
+        element: <ToursLayout />,
       },
       {
-        path: "/tour-details",
+        path: "/tour-details/:id",
         element: <TourDetails />,
       },
       {
